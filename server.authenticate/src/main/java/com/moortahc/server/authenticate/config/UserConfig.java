@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Configurable;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.security.crypto.password.PasswordEncoder;
 
 import java.time.LocalDateTime;
 import java.util.List;
@@ -17,12 +18,12 @@ import java.util.List;
 public class UserConfig implements InitializingBean, DisposableBean {
     
     private final UserRepository userRepository;
-    private final BCryptPasswordEncoder bCryptPasswordEncoder;
+    private final PasswordEncoder passwordEncoder;
     
     @Autowired
-    public UserConfig(UserRepository userRepository, BCryptPasswordEncoder bCryptPasswordEncoder) {
+    public UserConfig(UserRepository userRepository, PasswordEncoder passwordEncoder) {
         this.userRepository = userRepository;
-        this.bCryptPasswordEncoder = bCryptPasswordEncoder;
+        this.passwordEncoder = passwordEncoder;
     }
     
     @Override
@@ -34,7 +35,7 @@ public class UserConfig implements InitializingBean, DisposableBean {
                 .firstName("Tom")
                 .lastName("Jerry")
                 .generatedName("GEN")
-                .passwordHash(bCryptPasswordEncoder.encode("password"))
+                .passwordHash(passwordEncoder.encode("password"))
                 .id(0L)
                 .roles(List.of(UserRole.USER))
                 .build());

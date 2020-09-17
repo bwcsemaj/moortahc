@@ -6,6 +6,7 @@ import com.moortahc.server.authenticate.repo.exception.UserDoesNotExistException
 import com.moortahc.server.authenticate.service.exceptions.InvalidUserCredentialsException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import java.util.Optional;
@@ -14,12 +15,12 @@ import java.util.Optional;
 public class UserService {
     
     private final UserRepository userRepository;
-    private final BCryptPasswordEncoder bCryptPasswordEncoder;
+    private final PasswordEncoder passwordEncoder;
     
     @Autowired
-    public UserService(UserRepository userRepository, BCryptPasswordEncoder bCryptPasswordEncoder) {
+    public UserService(UserRepository userRepository, PasswordEncoder passwordEncoder) {
         this.userRepository = userRepository;
-        this.bCryptPasswordEncoder = bCryptPasswordEncoder;
+        this.passwordEncoder = passwordEncoder;
     }
     
     public UserEntity validateCredentials(String emailAddress, String password) throws InvalidUserCredentialsException, UserDoesNotExistException {
@@ -28,7 +29,7 @@ public class UserService {
             throw new UserDoesNotExistException(String.format("User with %s, does not exist", emailAddress));
         }
         var userEntity = opUserEntity.get();
-        if(bCryptPasswordEncoder.matches(password, userEntity.getPasswordHash())){
+        if(passwordEncoder.matches(password, userEntity.getPasswordHash())){
             return userEntity;
         }
         throw new InvalidUserCredentialsException("User credentials are invalid");

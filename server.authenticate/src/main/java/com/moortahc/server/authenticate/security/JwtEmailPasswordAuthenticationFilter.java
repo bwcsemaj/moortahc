@@ -77,9 +77,5 @@ public class JwtEmailPasswordAuthenticationFilter extends UsernamePasswordAuthen
         response.addHeader(jwtConfig.getHeader(), jwtConfig.getPrefix() + token);
     }
     
-    // A (temporary) class just to represent the user credentials
-    @Data
-    private static class UserCredentials implements LoginCredentials {
-        private String emailAddress, password;
-    }
+    
 }

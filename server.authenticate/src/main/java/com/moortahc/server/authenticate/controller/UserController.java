@@ -6,6 +6,7 @@ import com.moortahc.server.authenticate.repo.UserRepository;
 import com.moortahc.server.authenticate.repo.exception.UserDoesNotExistException;
 import com.moortahc.server.authenticate.service.UserService;
 import com.moortahc.server.authenticate.service.exceptions.InvalidUserCredentialsException;
+import lombok.Getter;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -22,13 +23,17 @@ import java.util.Optional;
 @RestController
 public class UserController {
     
+    @Getter
     private final UserService userService;
-    private final BCryptPasswordEncoder bCryptPasswordEncoder;
     
     @Autowired
-    public UserController(UserService userService, BCryptPasswordEncoder bCryptPasswordEncoder) {
+    public UserController(UserService userService) {
         this.userService = userService;
-        this.bCryptPasswordEncoder = bCryptPasswordEncoder;
+    }
+    
+    @GetMapping("/")
+    public String home(){
+        return "Hello World";
     }
     
     @GetMapping("/authenticate2")
@@ -36,7 +41,11 @@ public class UserController {
         UserEntity opUserEntity;
         try {
             opUserEntity = userService.validateCredentials(emailAddress, password);
+            log.debug("{}", opUserEntity);
+            log.debug("{}", opUserEntity);
+            log.debug("{}", opUserEntity);
         } catch (InvalidUserCredentialsException | UserDoesNotExistException e) {
+            log.error(e.toString());
             return new ResponseEntity<>(HttpStatus.OK);
         }
         return new ResponseEntity<>(convertTo(opUserEntity), HttpStatus.OK);
