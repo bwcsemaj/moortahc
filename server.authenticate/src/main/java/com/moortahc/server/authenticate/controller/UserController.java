@@ -31,24 +31,16 @@ public class UserController {
         this.userService = userService;
     }
     
-    @GetMapping("/")
-    public String home(){
-        return "Hello World";
-    }
-    
     @GetMapping("/authenticate2")
     public ResponseEntity<UserDto> authenticate(@RequestParam String emailAddress, @RequestParam String password) {
-        UserEntity opUserEntity;
+        UserEntity userEntity;
         try {
-            opUserEntity = userService.validateCredentials(emailAddress, password);
-            log.debug("{}", opUserEntity);
-            log.debug("{}", opUserEntity);
-            log.debug("{}", opUserEntity);
+            userEntity = userService.validateCredentials(emailAddress, password);
         } catch (InvalidUserCredentialsException | UserDoesNotExistException e) {
             log.error(e.toString());
-            return new ResponseEntity<>(HttpStatus.OK);
+            return new ResponseEntity<>(HttpStatus.UNAUTHORIZED);
         }
-        return new ResponseEntity<>(convertTo(opUserEntity), HttpStatus.OK);
+        return new ResponseEntity<>(convertTo(userEntity), HttpStatus.OK);
     }
     
     

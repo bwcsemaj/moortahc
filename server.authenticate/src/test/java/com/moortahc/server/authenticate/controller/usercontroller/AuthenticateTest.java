@@ -83,18 +83,13 @@ public class AuthenticateTest {
     public void givenWrongCredsWhenAuthThenFailTest() throws Exception {
         //given
         var givenWrongCreds = new UserCredentials("bad", "notpassword");
-        displayAllBeans(applicationContext);
-//        System.out.println(userServiceMock == applicationContext.getBean("userService"));
-//        System.out.println(userServiceMock == applicationContext.getBean("userService"));
-//        System.out.println(userServiceMock == applicationContext.getBean("userService222"));
-        System.out.println(userController.getUserService()==userServiceMock);
         
         //when
         Mockito.when(userServiceMock.validateCredentials(givenWrongCreds.getEmailAddress(), givenWrongCreds.getPassword()))
                 .thenThrow(new UserDoesNotExistException(""));
 
         //then
-        mockMvc.perform(get("/authenticate2"))
+        mockMvc.perform(get(String.format("http://localhost:8082/authenticate2?emailAddress=%s&password=%s", givenWrongCreds.getEmailAddress(), givenWrongCreds.getPassword())))
                 .andExpect(status().is4xxClientError());
     
 //        mockMvc.perform(get("/authenticate2"))
@@ -127,16 +122,11 @@ public class AuthenticateTest {
     @Test
     public void givenCorrectCredsWhenAuthThenUserDtoTest() throws Exception {
         //given
-        var givenWrongCreds = new UserCredentials("correct", "password");
-        //displayAllBeans(applicationContext);
-        System.out.println(userServiceMock == applicationContext.getBean("userService"));
-        System.out.println(userServiceMock == applicationContext.getBean("userService"));
-        System.out.println(userServiceMock == applicationContext.getBean("userService"));
-        
+        var givenCorrectCreds = new UserCredentials("correct", "password");
         
         //when
-        Mockito.when(userServiceMock.validateCredentials(givenWrongCreds.getEmailAddress(), givenWrongCreds.getPassword()))
-                .thenReturn( UserEntity
+        Mockito.when(userServiceMock.validateCredentials(givenCorrectCreds.getEmailAddress(), givenCorrectCreds.getPassword()))
+                .thenReturn(UserEntity
                         .builder()
                         .createdDate(LocalDateTime.now())
                         .emailAddress("aaaaaaaaaaa!gf")
@@ -149,33 +139,11 @@ public class AuthenticateTest {
                         .build());
         
         //then
-        mockMvc.perform(get("http://localhost:8082/authenticate2?emailAddress=a&password=password"))
+        mockMvc.perform(get(String.format("http://localhost:8082/authenticate2?emailAddress=%s&password=%s", givenCorrectCreds.getEmailAddress(), givenCorrectCreds.getPassword())))
                 .andExpect(status().is2xxSuccessful());
-
-//        mockMvc.perform(get("/authenticate2"))
-//                .andExpect(status().is4xxClientError())
-//                .andExpect(status().isOk())
-//                .andExpect(view().name("todo/list"))
-//                .andExpect(forwardedUrl("/WEB-INF/jsp/todo/list.jsp"))
-//                .andExpect(model().attribute("todos", hasSize(2)))
-//                .andExpect(model().attribute("todos", hasItem(
-//                        allOf(
-//                                hasProperty("id", is(1L)),
-//                                hasProperty("description", is("Lorem ipsum")),
-//                                hasProperty("title", is("Foo"))
-//                        )
-//                )))
-//                .andExpect(model().attribute("todos", hasItem(
-//                        allOf(
-//                                hasProperty("id", is(2L)),
-//                                hasProperty("description", is("Lorem ipsum")),
-//                                hasProperty("title", is("Bar"))
-//                        )
-//                )));
-        
         
         verify(userServiceMock, times(1))
-                .validateCredentials(givenWrongCreds.getEmailAddress(), givenWrongCreds.getPassword());
+                .validateCredentials(givenCorrectCreds.getEmailAddress(), givenCorrectCreds.getPassword());
         verifyNoMoreInteractions(userServiceMock);
     }
 }
