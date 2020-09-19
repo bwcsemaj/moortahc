@@ -89,7 +89,7 @@ public class AuthenticateTest {
                 .thenThrow(new UserDoesNotExistException(""));
 
         //then
-        mockMvc.perform(get(String.format("http://localhost:8082/authenticate2?emailAddress=%s&password=%s", givenWrongCreds.getEmailAddress(), givenWrongCreds.getPassword())))
+        mockMvc.perform(get(String.format("/authenticate2?emailAddress=%s&password=%s", givenWrongCreds.getEmailAddress(), givenWrongCreds.getPassword())))
                 .andExpect(status().is4xxClientError());
     
 //        mockMvc.perform(get("/authenticate2"))
@@ -129,17 +129,17 @@ public class AuthenticateTest {
                 .thenReturn(UserEntity
                         .builder()
                         .createdDate(LocalDateTime.now())
-                        .emailAddress("aaaaaaaaaaa!gf")
+                        .emailAddress("correct")
                         .firstName("agreger")
                         .lastName("Jerraasdfgagry")
                         .generatedName("GENFFFFFFFFFFFFFFFFFF")
-                        .passwordHash(passwordEncoder.encode("v"))
+                        .passwordHash(passwordEncoder.encode("password"))
                         .id(0L)
                         .roles(Lists.emptyList())
                         .build());
         
         //then
-        mockMvc.perform(get(String.format("http://localhost:8082/authenticate2?emailAddress=%s&password=%s", givenCorrectCreds.getEmailAddress(), givenCorrectCreds.getPassword())))
+        mockMvc.perform(get(String.format("/authenticate2?emailAddress=%s&password=%s", givenCorrectCreds.getEmailAddress(), givenCorrectCreds.getPassword())))
                 .andExpect(status().is2xxSuccessful());
         
         verify(userServiceMock, times(1))

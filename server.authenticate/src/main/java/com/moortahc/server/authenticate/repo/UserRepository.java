@@ -11,9 +11,7 @@ import java.util.Optional;
 public interface UserRepository extends JpaRepository<UserEntity, Long> {
     
     /**
-     * @return an Optional that may contain a user with given email address and password or nothing
+     * @return an Optional that may contain a user with given email address or nothing
      */
-    public Optional<UserEntity> findByEmailAddressAndPasswordHash(String emailAddress, String passwordHash);
-    
     public Optional<UserEntity> findByEmailAddress(String emailAddress);
 }
