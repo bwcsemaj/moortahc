@@ -1,19 +1,17 @@
-package com.moortahc.server.authenticate;
+package com.moortahc.server.gateway;
 
-import com.moortahc.server.authenticate.config.UserConfig;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.cloud.netflix.eureka.EnableEurekaClient;
-import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 
 @EnableEurekaClient
 @SpringBootApplication
 @ComponentScan("com.moortahc.server")
-public class AuthenticateDriver {
+public class GatewayDriver {
     
     public static void main(String[] args) {
-        SpringApplication.run(AuthenticateDriver.class, args);
+        SpringApplication.run(GatewayDriver.class, args);
     }
     
 }

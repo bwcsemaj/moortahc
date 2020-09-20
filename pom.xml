@@ -13,6 +13,9 @@
         <module>server.discovery</module>
         <module>server.gateway</module>
         <module>server.common</module>
+        <module>server.post</module>
+        <module>server.comment</module>
+        <module>server.room</module>
     </modules>
     <name>parent</name>
     <description>Chatroom for all websites.</description>

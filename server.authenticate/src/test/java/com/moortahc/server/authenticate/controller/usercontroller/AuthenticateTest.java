@@ -1,6 +1,5 @@
 package com.moortahc.server.authenticate.controller.usercontroller;
 
-import com.moortahc.server.authenticate.controller.UserController;
 import com.moortahc.server.authenticate.model.LoginCredentials;
 import com.moortahc.server.authenticate.model.UserDto;
 import com.moortahc.server.authenticate.model.UserEntity;
@@ -60,9 +59,6 @@ public class AuthenticateTest {
     
     @MockBean
     private UserService userServiceMock;
-    
-    @Autowired
-    private UserController userController;
     
     @Autowired
     private PasswordEncoder passwordEncoder;
