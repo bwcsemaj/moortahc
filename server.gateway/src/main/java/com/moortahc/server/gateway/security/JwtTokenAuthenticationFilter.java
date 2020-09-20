@@ -3,6 +3,7 @@ package com.moortahc.server.gateway.security;
 import com.moortahc.server.common.security.JwtConfig;
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.Jwts;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.context.SecurityContextHolder;
@@ -12,22 +13,23 @@ import javax.servlet.FilterChain;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.validation.constraints.NotNull;
 import java.io.IOException;
 import java.util.List;
 import java.util.stream.Collectors;
 
+@Slf4j
 public class JwtTokenAuthenticationFilter extends OncePerRequestFilter {
 
     private final JwtConfig jwtConfig;
 
-    public JwtTokenAuthenticationFilter(JwtConfig jwtConfig) {
+    public JwtTokenAuthenticationFilter(@NotNull JwtConfig jwtConfig) {
         this.jwtConfig = jwtConfig;
     }
 
     @Override
     protected void doFilterInternal(HttpServletRequest request, HttpServletResponse response, FilterChain chain)
             throws ServletException, IOException {
-
         // 1. get the authentication header. Tokens are supposed to be passed in the authentication header
         String header = request.getHeader(jwtConfig.getHeader());
 
@@ -45,6 +47,7 @@ public class JwtTokenAuthenticationFilter extends OncePerRequestFilter {
 
         // 3. Get the token
         String token = header.replace(jwtConfig.getPrefix(), "");
+        log.debug("{}", token);
 
         try {	// exceptions might be thrown in creating the claims if for example the token is expired
 

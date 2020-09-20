@@ -14,6 +14,7 @@ import java.util.List;
 public class UserEntity implements User {
     
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     
     private LocalDateTime createdDate;

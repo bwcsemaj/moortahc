@@ -18,12 +18,12 @@ public class CommentService {
     
     public CommentDto tryCreateComment(CommentDto commentDto, String postId, String roomId) throws InvalidCommentException {
         //Validate comment
-        //if(!validateComment(commentDto)){
-       //     throw new InvalidCommentException();
-       // }
+        if(!validateComment(commentDto)){
+            throw new InvalidCommentException();
+        }
         
         //See if the Post actually exists
-        //restTemplate.getForObject("http://")
+        restTemplate.getForObject("http://server.authenticate/")
         
         //Save Comment
         

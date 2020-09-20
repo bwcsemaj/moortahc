@@ -15,12 +15,12 @@ public interface Comment {
     /**
      * @return the User's id who created the comment
      */
-    public String getFromId();
+    public Long getFromId();
     
     /**
      * @return the Post's id the comment is commenting on
      */
-    public String getPostId();
+    public Long getPostId();
     
     /**
      * @return the contents of the comment (message)

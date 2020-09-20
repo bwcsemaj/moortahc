@@ -1,11 +1,10 @@
 package com.moortahc.server.authenticate.security;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.moortahc.server.authenticate.model.LoginCredentials;
 import com.moortahc.server.common.security.JwtConfig;
+import com.moortahc.server.common.security.JwtTokenUtil;
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.SignatureAlgorithm;
-import lombok.Data;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;
@@ -28,10 +27,12 @@ import java.util.stream.Collectors;
 public class JwtEmailPasswordAuthenticationFilter extends UsernamePasswordAuthenticationFilter {
     private final AuthenticationManager authenticationManager;
     private final JwtConfig jwtConfig;
+    private final JwtTokenUtil jwtTokenUtil;
     
-    public JwtEmailPasswordAuthenticationFilter(AuthenticationManager authenticationManager, JwtConfig jwtConfig) {
+    public JwtEmailPasswordAuthenticationFilter(AuthenticationManager authenticationManager, JwtConfig jwtConfig, JwtTokenUtil jwtTokenUtil) {
         this.authenticationManager = authenticationManager;
         this.jwtConfig = jwtConfig;
+        this.jwtTokenUtil = jwtTokenUtil;
     
         //Override default path
         this.setRequiresAuthenticationRequestMatcher(new AntPathRequestMatcher(jwtConfig.getUri(), "POST"));
@@ -62,16 +63,7 @@ public class JwtEmailPasswordAuthenticationFilter extends UsernamePasswordAuthen
     @Override
     protected void successfulAuthentication(HttpServletRequest request, HttpServletResponse response, FilterChain chain,
                                             Authentication auth) throws IOException, ServletException {
-        String token = Jwts.builder()
-                .setSubject(auth.getName())
-                // Convert to list of strings.
-                // This is important because it affects the way we get them back in the Gateway.
-                .claim("authorities", auth.getAuthorities().stream()
-                        .map(GrantedAuthority::getAuthority).collect(Collectors.toList()))
-                .setIssuedAt(Date.from(Instant.now()))
-                .setExpiration(Date.from(Instant.now().plusMillis(jwtConfig.getExpiration() * 1000)))  // in milliseconds
-                .signWith(SignatureAlgorithm.HS512, jwtConfig.getSecret().getBytes())
-                .compact();
+        String token = jwtTokenUtil.generateToken(auth);
         
         // Add token to header
         response.addHeader(jwtConfig.getHeader(), jwtConfig.getPrefix() + token);

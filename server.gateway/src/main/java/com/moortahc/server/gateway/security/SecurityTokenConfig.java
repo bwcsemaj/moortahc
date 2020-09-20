@@ -15,14 +15,14 @@ import javax.servlet.http.HttpServletResponse;
 @Configuration
 @EnableWebSecurity    // Enable security config. This annotation denotes config for spring security.
 public class SecurityTokenConfig extends WebSecurityConfigurerAdapter {
-    
+
     private final JwtConfig jwtConfig;
-    
+
     @Autowired
     public SecurityTokenConfig(JwtConfig jwtConfig) {
         this.jwtConfig = jwtConfig;
     }
-    
+
     @Override
     protected void configure(HttpSecurity http) throws Exception {
         http
@@ -39,9 +39,10 @@ public class SecurityTokenConfig extends WebSecurityConfigurerAdapter {
                 .authorizeRequests()
                 // allow all who are accessing "auth" service
                 .antMatchers(HttpMethod.POST, jwtConfig.getUri()).permitAll()
+                .antMatchers(HttpMethod.GET, jwtConfig.getUri()).permitAll()
                 // must be an admin if trying to access admin area (authentication is also required here)
                 //.antMatchers("/gallery" + "/admin/**").hasRole("ADMIN")
                 // Any other request must be authenticated
-                .anyRequest().authenticated();
+                .anyRequest().permitAll();
     }
 }
