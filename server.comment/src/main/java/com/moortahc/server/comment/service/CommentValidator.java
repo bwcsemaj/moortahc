@@ -36,7 +36,7 @@ public class CommentValidator {
         }
 
         //Make sure content length is less than max
-        if (content == null || content.isEmpty() || content.length() > MAX_CONTENT_LENGTH) {
+        if (content == null || content.isBlank() || content.length() > MAX_CONTENT_LENGTH) {
             throw new InvalidCommentException();
         }
         return CommentEntity.builder()

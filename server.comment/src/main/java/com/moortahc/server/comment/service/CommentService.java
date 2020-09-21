@@ -30,9 +30,8 @@ public class CommentService {
         var savedCommentEntity = commentRepository.save(verifiedCommentEntity);
 
         //Add comment to Message Broker
-        //#TODO add comment to message broker
-
-
+        // restTemplate.getForObject("http://server-room/", Void.class);
+        
         return savedCommentEntity;
     }
 }

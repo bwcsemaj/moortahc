@@ -50,7 +50,6 @@ public class CommentController {
         }
     }
     
-    
     public static CommentDto convertTo(CommentEntity commentEntity) {
         var commentDto = new CommentDto();
         BeanUtils.copyProperties(commentEntity, commentDto);
