@@ -32,6 +32,6 @@ public class UserDetailsServiceImpl implements UserDetailsService {
         }
         var userEntity = opUserEntity.get();
         var grantedAuthorities = userEntity.getRoles().stream().map(UserRole::toSpringRole).map(SimpleGrantedAuthority::new).collect(Collectors.toList());
-        return new User(userEntity.getEmailAddress(), userEntity.getPasswordHash(), grantedAuthorities);
+        return new User(userEntity.getId().toString(), userEntity.getPasswordHash(), grantedAuthorities);
     }
 }

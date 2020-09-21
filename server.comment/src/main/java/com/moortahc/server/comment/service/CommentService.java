@@ -1,33 +1,38 @@
 package com.moortahc.server.comment.service;
 
-import com.moortahc.server.comment.model.CommentDto;
+import com.moortahc.server.comment.model.CommentEntity;
+import com.moortahc.server.comment.repo.CommentRepository;
 import com.moortahc.server.comment.service.exceptions.InvalidCommentException;
+import com.moortahc.server.comment.service.exceptions.PostDNEException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 
 @Service
 public class CommentService {
-    
+
     private final RestTemplate restTemplate;
-    
+    private final CommentRepository commentRepository;
+    private final CommentValidator commentValidator;
+
     @Autowired
-    public CommentService(RestTemplate restTemplate) {
+    public CommentService(RestTemplate restTemplate, CommentRepository commentRepository, CommentValidator commentValidator) {
         this.restTemplate = restTemplate;
+        this.commentRepository = commentRepository;
+        this.commentValidator = commentValidator;
     }
-    
-    public CommentDto tryCreateComment(CommentDto commentDto, String postId, String roomId) throws InvalidCommentException {
+
+    public CommentEntity tryCreateComment(Long fromId, String content, Long postId) throws InvalidCommentException, PostDNEException {
         //Validate comment
-        if(!validateComment(commentDto)){
-            throw new InvalidCommentException();
-        }
-        
-        //See if the Post actually exists
-        restTemplate.getForObject("http://server.authenticate/")
-        
+        var verifiedCommentEntity = commentValidator.validate(fromId, content, postId);
+
         //Save Comment
-        
+        var savedCommentEntity = commentRepository.save(verifiedCommentEntity);
+
         //Add comment to Message Broker
-        return null;
+        //#TODO add comment to message broker
+
+
+        return savedCommentEntity;
     }
 }

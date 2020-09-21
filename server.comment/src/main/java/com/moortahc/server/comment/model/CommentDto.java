@@ -13,10 +13,10 @@ import java.time.Instant;
 @NoArgsConstructor
 @AllArgsConstructor
 public class CommentDto implements Comment {
-    
+
     private Long id;
-    private String fromId;
-    private String postId;
+    private Long fromId;
+    private Long postId;
     private String content;
     private Instant createdDate;
 }

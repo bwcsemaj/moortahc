@@ -16,16 +16,16 @@ import java.time.Instant;
 @AllArgsConstructor
 @Builder
 public class CommentEntity implements Comment {
-    
+
     @Id
     @GeneratedValue
     private Long id;
-    
-    private String fromId;
-    
-    private String postId;
-    
+
+    private Long fromId;
+
+    private Long postId;
+
     private String content;
-    
+
     private Instant createdDate;
 }

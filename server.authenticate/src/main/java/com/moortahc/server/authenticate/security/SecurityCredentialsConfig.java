@@ -2,6 +2,7 @@ package com.moortahc.server.authenticate.security;
 
 import com.moortahc.server.authenticate.service.UserDetailsServiceImpl;
 import com.moortahc.server.common.security.JwtConfig;
+import com.moortahc.server.common.security.JwtTokenUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -24,11 +25,13 @@ public class SecurityCredentialsConfig extends WebSecurityConfigurerAdapter {
     private final UserDetailsService userDetailsService;
     
     private final JwtConfig jwtConfig;
+    private final JwtTokenUtil jwtTokenUtil;
     
     @Autowired
-    public SecurityCredentialsConfig(UserDetailsServiceImpl userDetailsService, JwtConfig jwtConfig) {
+    public SecurityCredentialsConfig(UserDetailsServiceImpl userDetailsService, JwtConfig jwtConfig, JwtTokenUtil jwtTokenUtil) {
         this.userDetailsService = userDetailsService;
         this.jwtConfig = jwtConfig;
+        this.jwtTokenUtil = jwtTokenUtil;
     }
     
     
@@ -56,7 +59,6 @@ public class SecurityCredentialsConfig extends WebSecurityConfigurerAdapter {
                 // allow all POST requests
                 .antMatchers(HttpMethod.POST, jwtConfig.getUri()).permitAll()
                 .antMatchers(HttpMethod.GET, "/authenticate2").permitAll()
-                .antMatchers(HttpMethod.GET, "/home").permitAll()
                 .antMatchers("/h2-console/**").permitAll()
                 // any other requests must be authenticated
                 .anyRequest().authenticated()

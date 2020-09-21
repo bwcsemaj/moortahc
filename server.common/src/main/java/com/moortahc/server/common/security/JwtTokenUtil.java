@@ -6,18 +6,18 @@ import io.jsonwebtoken.SignatureAlgorithm;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.GrantedAuthority;
-import org.springframework.security.core.authority.SimpleGrantedAuthority;
-import org.springframework.security.core.userdetails.User;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Component;
 
+import javax.servlet.http.HttpServletRequest;
 import java.io.Serializable;
 import java.time.Instant;
-import java.util.Arrays;
 import java.util.Date;
 import java.util.function.Function;
 import java.util.stream.Collectors;
 
+
+//https://stackoverflow.com/questions/50803727/spring-with-jwt-auth-get-current-user
 @Component
 public class JwtTokenUtil implements Serializable {
     
@@ -26,6 +26,12 @@ public class JwtTokenUtil implements Serializable {
     @Autowired
     public JwtTokenUtil(JwtConfig jwtConfig) {
         this.jwtConfig = jwtConfig;
+    }
+    
+    public String getUsernameFromRequest(HttpServletRequest request){
+        //Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhIiwiYXV0a...
+        var token = request.getHeader("Authorization").split(" ")[1];
+        return getUsernameFromToken(token);
     }
     
     public String getUsernameFromToken(String token) {
@@ -71,11 +77,10 @@ public class JwtTokenUtil implements Serializable {
         return token;
     }
     
-    public Boolean validateToken(String token, UserDetails userDetails) {
+    public boolean validateToken(String token, UserDetails userDetails) {
         final String username = getUsernameFromToken(token);
         return (
                 username.equals(userDetails.getUsername())
                         && !isTokenExpired(token));
     }
-    
 }

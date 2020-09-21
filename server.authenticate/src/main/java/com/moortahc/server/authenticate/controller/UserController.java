@@ -41,12 +41,6 @@ public class UserController {
         return new ResponseEntity<>(convertTo(userEntity), HttpStatus.OK);
     }
     
-    @GetMapping("/")
-    public ResponseEntity<String> home() {
-        return new ResponseEntity<>("HOME", HttpStatus.OK);
-    }
-    
-    
     public static UserDto convertTo(UserEntity userEntity) {
         var userDto = new UserDto();
         BeanUtils.copyProperties(userEntity, userDto);
