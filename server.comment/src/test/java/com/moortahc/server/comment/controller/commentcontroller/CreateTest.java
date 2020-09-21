@@ -78,7 +78,8 @@ public class CreateTest {
                 .thenThrow(new InvalidCommentException());
         
         //when
-        var actualResponseEntity = commentController.create(null, givenPostId, givenIncorrectContent);
+        var actualResponseEntity =
+                commentController.create(null, givenPostId, givenIncorrectContent);
         
         //then
         Assert.assertEquals(HttpStatus.NOT_FOUND.value(), actualResponseEntity.getStatusCodeValue());

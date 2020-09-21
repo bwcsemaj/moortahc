@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<testsuite tests="3" failures="0" name="com.moortahc.server.authenticate.controller.usercontroller.AuthenticateTest" time="0.323" errors="0" skipped="0">
+  <properties>
+    <property name="idea.version" value="2020.2"/>
+    <property name="java.runtime.name" value="OpenJDK Runtime Environment"/>
+    <property name="java.vm.version" value="15-loom+7-141"/>
+    <property name="sun.boot.library.path" value="C:\Java\jdk-15-loom+7-141\bin"/>
+    <property name="maven.multiModuleProjectDirectory" value="C:\Users\BWC_S\per-scholas\dev\moortahc"/>
+    <property name="java.vm.vendor" value="Oracle Corporation"/>
+    <property name="java.vendor.url" value="https://java.oracle.com/"/>
+    <property name="guice.disable.misplaced.annotation.check" value="true"/>
+    <property name="path.separator" value=";"/>
+    <property name="java.vm.name" value="OpenJDK 64-Bit Server VM"/>
+    <property name="sun.os.patch.level" value=""/>
+    <property name="user.script" value=""/>
+    <property name="user.country" value="US"/>
+    <property name="sun.java.launcher" value="SUN_STANDARD"/>
+    <property name="java.vm.specification.name" value="Java Virtual Machine Specification"/>
+    <property name="user.dir" value="C:\Users\BWC_S\per-scholas\dev\moortahc"/>
+    <property name="java.vm.compressedOopsMode" value="Zero based"/>
+    <property name="java.runtime.version" value="15-loom+7-141"/>
+    <property name="os.arch" value="amd64"/>
+    <property name="java.io.tmpdir" value="C:\Users\BWC_S\AppData\Local\Temp\"/>
+    <property name="line.separator" value="
+"/>
+    <property name="java.vm.specification.vendor" value="Oracle Corporation"/>
+    <property name="user.variant" value=""/>
+    <property name="os.name" value="Windows 10"/>
+    <property name="maven.ext.class.path" value="C:\Program Files\JetBrains\IntelliJ IDEA 2020.1.2\plugins\maven\lib\maven-event-listener.jar"/>
+    <property name="classworlds.conf" value="C:\Users\BWC_S\.m2\wrapper\dists\apache-maven-3.6.3-bin\1iopthnavndlasol9gbrbg6bf2\apache-maven-3.6.3\bin\m2.conf"/>
+    <property name="sun.jnu.encoding" value="Cp1252"/>
+    <property name="java.library.path" value="C:\Java\jdk-15-loom+7-141\bin;C:\WINDOWS\Sun\Java\bin;C:\WINDOWS\system32;C:\WINDOWS;C:\Java\amazon-corretto-8\jdk1.8.0_222\bin;C:\Java\jdk-15-loom+7-141\bin;c:\program files (x86)\razer chroma sdk\bin;c:\program files\razer chroma sdk\bin;c:\program files (x86)\intel\icls client\;c:\program files\intel\icls client\;c:\windows\system32;c:\windows;c:\windows\system32\wbem;c:\windows\system32\windowspowershell\v1.0\;c:\program files (x86)\intel\intel(r) management engine components\dal;c:\program files\intel\intel(r) management engine components\dal;c:\program files (x86)\intel\intel(r) management engine components\ipt;c:\program files\intel\intel(r) management engine components\ipt;c:\program files\intel\wifi\bin\;c:\program files\common files\intel\wirelesscommon\;c:\windows\system32\config\systemprofile\appdata\local\microsoft\windowsapps;c:\gradle\gradle-5.2.1\bin;c:\windows\system32\openssh\;c:\program files\nvidia corporation\nvidia nvdlisr;C:\Program Files (x86)\NVIDIA Corporation\PhysX\Common;C:\Program Files\Git\cmd;C:\Program Files\nodejs\;C:\Program Files\Zulu\zulu-8\bin\;%SystemRoot%\system32;%SystemRoot%;%SystemRoot%\System32\Wbem;%SYSTEMROOT%\System32\WindowsPowerShell\v1.0\;%SYSTEMROOT%\System32\OpenSSH\;C:\Users\BWC_S\AppData\Local\Microsoft\WindowsApps;C:\Program Files\Intel\WiFi\bin\;C:\Program Files\Common Files\Intel\WirelessCommon\;C:\Users\BWC_S\AppData\Local\GitHubDesktop\bin;C:\Users\BWC_S\AppData\Local\atom\bin;C:\Users\BWC_S\AppData\Local\Programs\Microsoft VS Code\bin;C:\Users\BWC_S\AppData\Roaming\npm;%USERPROFILE%\AppData\Local\Microsoft\WindowsApps;;."/>
+    <property name="maven.conf" value="C:\Users\BWC_S\.m2\wrapper\dists\apache-maven-3.6.3-bin\1iopthnavndlasol9gbrbg6bf2\apache-maven-3.6.3/conf"/>
+    <property name="jdk.debug" value="release"/>
+    <property name="java.class.version" value="59.0"/>
+    <property name="java.specification.name" value="Java Platform API Specification"/>
+    <property name="sun.management.compiler" value="HotSpot 64-Bit Tiered Compilers"/>
+    <property name="os.version" value="10.0"/>
+    <property name="user.home" value="C:\Users\BWC_S"/>
+    <property name="user.timezone" value="America/New_York"/>
+    <property name="file.encoding" value="UTF-8"/>
+    <property name="java.specification.version" value="15"/>
+    <property name="user.name" value="BWC_S"/>
+    <property name="java.class.path" value="C:\Users\BWC_S\.m2\wrapper\dists\apache-maven-3.6.3-bin\1iopthnavndlasol9gbrbg6bf2\apache-maven-3.6.3\boot\plexus-classworlds-2.6.0.jar;C:\Users\BWC_S\.m2\wrapper\dists\apache-maven-3.6.3-bin\1iopthnavndlasol9gbrbg6bf2\apache-maven-3.6.3\boot\plexus-classworlds.license"/>
+    <property name="java.vm.specification.version" value="15"/>
+    <property name="sun.arch.data.model" value="64"/>
+    <property name="sun.java.command" value="org.codehaus.classworlds.Launcher -Didea.version=2020.2 package"/>
+    <property name="java.home" value="C:\Java\jdk-15-loom+7-141"/>
+    <property name="user.language" value="en"/>
+    <property name="java.specification.vendor" value="Oracle Corporation"/>
+    <property name="java.vm.info" value="mixed mode, sharing"/>
+    <property name="java.version" value="15-loom"/>
+    <property name="java.vendor" value="Oracle Corporation"/>
+    <property name="maven.home" value="C:\Users\BWC_S\.m2\wrapper\dists\apache-maven-3.6.3-bin\1iopthnavndlasol9gbrbg6bf2\apache-maven-3.6.3"/>
+    <property name="file.separator" value="\"/>
+    <property name="java.version.date" value="2020-09-15"/>
+    <property name="java.vendor.url.bug" value="https://bugreport.java.com/bugreport/"/>
+    <property name="sun.io.unicode.encoding" value="UnicodeLittle"/>
+    <property name="sun.cpu.endian" value="little"/>
+    <property name="sun.cpu.isalist" value="amd64"/>
+  </properties>
+  <testcase classname="com.moortahc.server.authenticate.controller.usercontroller.AuthenticateTest" name="givenCorrectCredsWhenAuthThenUserDtoTest" time="0.31"/>
+  <testcase classname="com.moortahc.server.authenticate.controller.usercontroller.AuthenticateTest" name="givenWrongCredsWhenAuthThenFailTest" time="0.008"/>
+  <testcase classname="com.moortahc.server.authenticate.controller.usercontroller.AuthenticateTest" name="contextLoads" time="0.005"/>
+</testsuite>

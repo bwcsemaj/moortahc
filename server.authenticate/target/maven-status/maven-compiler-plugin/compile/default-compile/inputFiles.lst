@@ -1,0 +1,16 @@
+C:\Users\BWC_S\per-scholas\dev\moortahc\server.authenticate\src\main\java\com\moortahc\server\authenticate\security\UserCredentials.java
+C:\Users\BWC_S\per-scholas\dev\moortahc\server.authenticate\src\main\java\com\moortahc\server\authenticate\security\JwtEmailPasswordAuthenticationFilter.java
+C:\Users\BWC_S\per-scholas\dev\moortahc\server.authenticate\src\main\java\com\moortahc\server\authenticate\model\User.java
+C:\Users\BWC_S\per-scholas\dev\moortahc\server.authenticate\src\main\java\com\moortahc\server\authenticate\controller\UserController.java
+C:\Users\BWC_S\per-scholas\dev\moortahc\server.authenticate\src\main\java\com\moortahc\server\authenticate\service\exceptions\InvalidUserCredentialsException.java
+C:\Users\BWC_S\per-scholas\dev\moortahc\server.authenticate\src\main\java\com\moortahc\server\authenticate\config\UserConfig.java
+C:\Users\BWC_S\per-scholas\dev\moortahc\server.authenticate\src\main\java\com\moortahc\server\authenticate\model\UserEntity.java
+C:\Users\BWC_S\per-scholas\dev\moortahc\server.authenticate\src\main\java\com\moortahc\server\authenticate\repo\UserRepository.java
+C:\Users\BWC_S\per-scholas\dev\moortahc\server.authenticate\src\main\java\com\moortahc\server\authenticate\service\UserDetailsServiceImpl.java
+C:\Users\BWC_S\per-scholas\dev\moortahc\server.authenticate\src\main\java\com\moortahc\server\authenticate\model\UserRole.java
+C:\Users\BWC_S\per-scholas\dev\moortahc\server.authenticate\src\main\java\com\moortahc\server\authenticate\model\UserDto.java
+C:\Users\BWC_S\per-scholas\dev\moortahc\server.authenticate\src\main\java\com\moortahc\server\authenticate\AuthenticateDriver.java
+C:\Users\BWC_S\per-scholas\dev\moortahc\server.authenticate\src\main\java\com\moortahc\server\authenticate\model\LoginCredentials.java
+C:\Users\BWC_S\per-scholas\dev\moortahc\server.authenticate\src\main\java\com\moortahc\server\authenticate\repo\exception\UserDoesNotExistException.java
+C:\Users\BWC_S\per-scholas\dev\moortahc\server.authenticate\src\main\java\com\moortahc\server\authenticate\security\SecurityCredentialsConfig.java
+C:\Users\BWC_S\per-scholas\dev\moortahc\server.authenticate\src\main\java\com\moortahc\server\authenticate\service\UserService.java

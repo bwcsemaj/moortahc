@@ -1,0 +1,5 @@
+com\moortahc\server\authenticate\controller\usercontroller\AuthenticateTest.class
+com\moortahc\server\authenticate\repo\userrepository\FindByEmailAddressTest.class
+com\moortahc\server\authenticate\service\userdetailsserviceimpl\UserDetailsServiceImplTest.class
+com\moortahc\server\authenticate\service\userservice\UserServiceTest.class
+com\moortahc\server\authenticate\controller\usercontroller\ConvertToTest.class
