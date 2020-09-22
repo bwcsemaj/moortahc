@@ -1,4 +1,4 @@
 -------------------------------------------------------------------------------
 Test set: com.moortahc.server.authenticate.repo.userrepository.FindByEmailAddressTest
 -------------------------------------------------------------------------------
-Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 7.956 sec
+Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 7.948 sec

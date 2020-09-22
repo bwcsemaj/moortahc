@@ -57,7 +57,7 @@ public class SecurityCredentialsConfig extends WebSecurityConfigurerAdapter {
                 .addFilter(new JwtEmailPasswordAuthenticationFilter(authenticationManager(), jwtConfig, jwtTokenUtil))
                 .authorizeRequests()
                 // allow all POST requests
-                .antMatchers(HttpMethod.POST, jwtConfig.getUri()).permitAll()
+                .antMatchers(HttpMethod.POST, "/create").permitAll()
                 .antMatchers(HttpMethod.GET, "/authenticate2").permitAll()
                 .antMatchers("/h2-console/**").permitAll()
                 // any other requests must be authenticated

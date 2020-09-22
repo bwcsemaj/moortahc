@@ -11,6 +11,7 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 
+import java.time.Instant;
 import java.time.LocalDateTime;
 import java.util.List;
 
@@ -30,7 +31,7 @@ public class UserConfig implements InitializingBean, DisposableBean {
     public void afterPropertiesSet() throws Exception {
         userRepository.save(UserEntity
                 .builder()
-                .createdDate(LocalDateTime.now())
+                .createdDate(Instant.now())
                 .emailAddress("a")
                 .firstName("Tom")
                 .lastName("Jerry")

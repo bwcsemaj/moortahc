@@ -11,10 +11,7 @@ import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @Slf4j
 @RestController
@@ -39,6 +36,16 @@ public class UserController {
             return new ResponseEntity<>(HttpStatus.UNAUTHORIZED);
         }
         return new ResponseEntity<>(convertTo(userEntity), HttpStatus.OK);
+    }
+    
+    @PostMapping("/create")
+    public ResponseEntity<UserDto> create(@RequestParam String emailAddress, @RequestParam String password, @RequestParam String firstName, @RequestParam String lastName){
+        try{
+            var userEntity = userService.create(emailAddress, password, firstName, lastName);
+            return new ResponseEntity<>(convertTo(userEntity), HttpStatus.OK);
+        }   catch(Exception exception){
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+        }
     }
     
     public static UserDto convertTo(UserEntity userEntity) {

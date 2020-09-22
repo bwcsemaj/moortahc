@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<testsuite tests="3" failures="0" name="com.moortahc.server.authenticate.controller.usercontroller.AuthenticateTest" time="0.323" errors="0" skipped="0">
+<testsuite tests="3" failures="0" name="com.moortahc.server.authenticate.controller.usercontroller.AuthenticateTest" time="0.317" errors="0" skipped="0">
   <properties>
     <property name="idea.version" value="2020.2"/>
     <property name="java.runtime.name" value="OpenJDK Runtime Environment"/>
@@ -59,7 +59,7 @@
     <property name="sun.cpu.endian" value="little"/>
     <property name="sun.cpu.isalist" value="amd64"/>
   </properties>
-  <testcase classname="com.moortahc.server.authenticate.controller.usercontroller.AuthenticateTest" name="givenCorrectCredsWhenAuthThenUserDtoTest" time="0.31"/>
-  <testcase classname="com.moortahc.server.authenticate.controller.usercontroller.AuthenticateTest" name="givenWrongCredsWhenAuthThenFailTest" time="0.008"/>
-  <testcase classname="com.moortahc.server.authenticate.controller.usercontroller.AuthenticateTest" name="contextLoads" time="0.005"/>
+  <testcase classname="com.moortahc.server.authenticate.controller.usercontroller.AuthenticateTest" name="givenCorrectCredsWhenAuthThenUserDtoTest" time="0.304"/>
+  <testcase classname="com.moortahc.server.authenticate.controller.usercontroller.AuthenticateTest" name="givenWrongCredsWhenAuthThenFailTest" time="0.007"/>
+  <testcase classname="com.moortahc.server.authenticate.controller.usercontroller.AuthenticateTest" name="contextLoads" time="0.006"/>
 </testsuite>

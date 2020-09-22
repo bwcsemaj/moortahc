@@ -16,6 +16,7 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.test.context.ActiveProfiles;
 
+import java.time.Instant;
 import java.time.LocalDateTime;
 import java.util.List;
 
@@ -31,7 +32,7 @@ public class ConvertToTest {
         return List.of(
                 UserEntity
                         .builder()
-                        .createdDate(LocalDateTime.now())
+                        .createdDate(Instant.now())
                         .emailAddress("a")
                         .firstName("Tom")
                         .lastName("Jerry")
@@ -42,7 +43,7 @@ public class ConvertToTest {
                         .build(),
                 UserEntity
                         .builder()
-                        .createdDate(LocalDateTime.now())
+                        .createdDate(Instant.now())
                         .emailAddress("aaaaaaaaaaa!gf")
                         .firstName("agreger")
                         .lastName("Jerraasdfgagry")
@@ -53,7 +54,7 @@ public class ConvertToTest {
                         .build(),
                 UserEntity
                         .builder()
-                        .createdDate(LocalDateTime.now())
+                        .createdDate(Instant.now())
                         .emailAddress("a")
                         .firstName("Tom")
                         .lastName("Jerry")

@@ -4,8 +4,10 @@ import com.moortahc.server.comment.CommentDriver;
 import com.moortahc.server.comment.controller.CommentController;
 import com.moortahc.server.comment.model.CommentEntity;
 import com.moortahc.server.common.utility.MoorTahcUtility;
+import org.assertj.core.data.MapEntry;
 import org.assertj.core.util.Lists;
 import org.junit.Assert;
+import org.junit.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.MethodSource;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,8 +19,15 @@ import org.springframework.test.context.ActiveProfiles;
 import java.time.Instant;
 import java.time.LocalDateTime;
 import java.time.temporal.ChronoUnit;
+import java.util.AbstractMap;
 import java.util.List;
+import java.util.Map;
+import java.util.UUID;
 import java.util.concurrent.TimeUnit;
+import java.util.function.Predicate;
+import java.util.function.UnaryOperator;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 @SpringBootTest(classes = CommentDriver.class)
 @ActiveProfiles("test")
@@ -34,7 +43,7 @@ public class ConvertToTest {
                         .createdDate(Instant.now())
                         .content("content")
                         .fromId(1l)
-                        .postId(99l).build(),
+                        .postId(99L).build(),
                 CommentEntity.builder()
                         .createdDate(Instant.now())
                         .content("content34taerggare")
@@ -49,7 +58,7 @@ public class ConvertToTest {
     }
     
     @ParameterizedTest
-    @MethodSource
+    @MethodSource("givenUserEntityWhenConvertingThenAllFieldsSameTest")
     public void givenCommentEntityWhenConvertingThenAllFieldsSameTest(CommentEntity commentEntity) throws IllegalAccessException {
         //given
         var givenCommentEntity = commentEntity;

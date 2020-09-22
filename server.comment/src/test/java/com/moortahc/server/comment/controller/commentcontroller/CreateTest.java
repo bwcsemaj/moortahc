@@ -63,7 +63,7 @@ public class CreateTest {
         Assert.assertEquals(CommentController.convertTo(givenEntity), actualResponseEntity.getBody());
     }
     
-    @Test(expected = InvalidCommentException.class)
+    @Test()
     public void givenInvalidContentThenHTTPStatusNotFoundTest() throws PostDNEException, InvalidCommentException {
         //given
         var givenPostId = 0l;

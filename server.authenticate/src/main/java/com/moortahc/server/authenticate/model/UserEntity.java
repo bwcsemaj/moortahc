@@ -3,7 +3,7 @@ package com.moortahc.server.authenticate.model;
 import lombok.*;
 
 import javax.persistence.*;
-import java.time.LocalDateTime;
+import java.time.Instant;
 import java.util.List;
 
 @Entity(name = "user")
@@ -17,7 +17,7 @@ public class UserEntity implements User {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     
-    private LocalDateTime createdDate;
+    private Instant createdDate;
     
     private String emailAddress;
     

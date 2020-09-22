@@ -36,6 +36,7 @@ import org.springframework.web.context.WebApplicationContext;
 import org.springframework.web.context.support.WebApplicationContextUtils;
 import org.springframework.web.servlet.support.RequestContextUtils;
 
+import java.time.Instant;
 import java.time.LocalDateTime;
 
 import static org.hamcrest.Matchers.*;
@@ -124,7 +125,7 @@ public class AuthenticateTest {
         Mockito.when(userServiceMock.validateCredentials(givenCorrectCreds.getEmailAddress(), givenCorrectCreds.getPassword()))
                 .thenReturn(UserEntity
                         .builder()
-                        .createdDate(LocalDateTime.now())
+                        .createdDate(Instant.now())
                         .emailAddress("correct")
                         .firstName("agreger")
                         .lastName("Jerraasdfgagry")

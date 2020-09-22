@@ -1,9 +1,12 @@
 package com.moortahc.server.authenticate.model;
 
+import java.time.Instant;
 import java.time.LocalDateTime;
 import java.util.List;
 
 public interface User {
+    
+    public static final int MAX_PASSWORD_LENGTH = 25;
     
     /**
      * @return id associated with the user
@@ -13,7 +16,7 @@ public interface User {
     /**
      * @return the date the user was created
      */
-    public LocalDateTime getCreatedDate();
+    public Instant getCreatedDate();
     
     /**
      * @return the first name of the user

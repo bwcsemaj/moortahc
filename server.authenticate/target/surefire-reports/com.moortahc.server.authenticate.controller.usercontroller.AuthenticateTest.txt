@@ -1,4 +1,4 @@
 -------------------------------------------------------------------------------
 Test set: com.moortahc.server.authenticate.controller.usercontroller.AuthenticateTest
 -------------------------------------------------------------------------------
-Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 15.662 sec
+Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 16.942 sec

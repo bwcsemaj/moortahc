@@ -5,6 +5,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.Value;
 
+import java.time.Instant;
 import java.time.LocalDateTime;
 import java.util.List;
 
@@ -15,7 +16,7 @@ import java.util.List;
 public class UserDto implements User {
     
     private Long id;
-    private LocalDateTime createdDate;
+    private Instant createdDate;
     private String firstName;
     private String lastName;
     private String generatedName;

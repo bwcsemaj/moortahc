@@ -20,6 +20,7 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.test.context.ActiveProfiles;
 import org.springframework.test.context.junit4.SpringRunner;
 
+import java.time.Instant;
 import java.time.LocalDateTime;
 import java.util.List;
 import java.util.Optional;
@@ -46,13 +47,14 @@ public class UserDetailsServiceImplTest {
     @Test
     public void givenValidEmailAddressThenGetUserDetailsTest() {
         //given
+        var expectedUserId = "0";
         // user the saved UserEntity emailAddress
         
         //when
         Mockito.when(userRepositoryMock.findByEmailAddress(GIVEN_EMAIL_ADDRESS))
                 .thenReturn(Optional.of(UserEntity
                         .builder()
-                        .createdDate(LocalDateTime.now())
+                        .createdDate(Instant.now())
                         .emailAddress(GIVEN_EMAIL_ADDRESS)
                         .firstName("Tom")
                         .lastName("Jerry")
@@ -64,7 +66,7 @@ public class UserDetailsServiceImplTest {
         var actualUserDetail = userDetailsService.loadUserByUsername(GIVEN_EMAIL_ADDRESS);
         
         //then
-        Assert.assertEquals(GIVEN_EMAIL_ADDRESS, actualUserDetail.getUsername());
+        Assert.assertEquals(expectedUserId, actualUserDetail.getUsername());
         Assert.assertTrue(passwordEncoder.matches(GIVEN_PASSWORD, actualUserDetail.getPassword()));
     }
     

@@ -15,6 +15,7 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.test.context.ActiveProfiles;
 import org.springframework.test.context.junit4.SpringRunner;
 
+import java.time.Instant;
 import java.time.LocalDateTime;
 import java.util.List;
 
@@ -39,7 +40,7 @@ public class FindByEmailAddressTest {
         userRepository.deleteAll();
         var givenUserEntity = UserEntity
                 .builder()
-                .createdDate(LocalDateTime.now())
+                .createdDate(Instant.now())
                 .emailAddress(GIVEN_EMAIL_ADDRESS)
                 .firstName("Tom")
                 .lastName("Jerry")
