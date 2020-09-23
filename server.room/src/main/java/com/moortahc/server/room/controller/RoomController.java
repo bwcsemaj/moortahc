@@ -7,9 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.messaging.handler.annotation.MessageMapping;
 import org.springframework.messaging.handler.annotation.Payload;
 import org.springframework.messaging.handler.annotation.SendTo;
-import org.springframework.web.bind.annotation.PutMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @Slf4j
 @RestController
@@ -28,7 +26,7 @@ public class RoomController {
         return chatMessage;
     }
     
-    @PutMapping("/dispatch")
+    @PostMapping("/dispatch")
     public void sendComment(@RequestBody MessageDto messageDto){
         log.info("GOT MESSAGE {}", messageDto);
         roomService.dispatchMessage(messageDto);

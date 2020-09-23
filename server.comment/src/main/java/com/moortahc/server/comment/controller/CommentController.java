@@ -48,8 +48,6 @@ public class CommentController {
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);
         } catch (InvalidCommentException e) {
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);
-        } catch (JsonProcessingException e) {
-            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
         }
     }
     

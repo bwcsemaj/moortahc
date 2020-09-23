@@ -1,6 +1,7 @@
 package com.moortahc.server.post.model;
 
 import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
@@ -8,6 +9,7 @@ import java.time.Instant;
 
 @Data
 @AllArgsConstructor
+@Builder
 public class MessageDto {
     
     private final Long postId;

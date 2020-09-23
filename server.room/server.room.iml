@@ -110,7 +110,6 @@
     <orderEntry type="library" name="Maven: org.springframework.boot:spring-boot-starter-web:2.3.4.RELEASE" level="project" />
     <orderEntry type="library" name="Maven: org.springframework.boot:spring-boot-starter-json:2.3.4.RELEASE" level="project" />
     <orderEntry type="library" name="Maven: com.fasterxml.jackson.datatype:jackson-datatype-jdk8:2.11.2" level="project" />
-    <orderEntry type="library" name="Maven: com.fasterxml.jackson.datatype:jackson-datatype-jsr310:2.11.2" level="project" />
     <orderEntry type="library" name="Maven: com.fasterxml.jackson.module:jackson-module-parameter-names:2.11.2" level="project" />
     <orderEntry type="library" name="Maven: org.springframework.boot:spring-boot-starter-tomcat:2.3.4.RELEASE" level="project" />
     <orderEntry type="library" name="Maven: org.apache.tomcat.embed:tomcat-embed-core:9.0.38" level="project" />
@@ -149,6 +148,7 @@
     <orderEntry type="library" name="Maven: org.springframework.security:spring-security-config:5.3.4.RELEASE" level="project" />
     <orderEntry type="library" name="Maven: org.springframework.security:spring-security-core:5.3.4.RELEASE" level="project" />
     <orderEntry type="library" name="Maven: org.springframework.security:spring-security-web:5.3.4.RELEASE" level="project" />
+    <orderEntry type="library" name="Maven: com.fasterxml.jackson.datatype:jackson-datatype-jsr310:2.11.2" level="project" />
     <orderEntry type="library" name="Maven: org.springframework.boot:spring-boot-starter-web-services:2.3.4.RELEASE" level="project" />
     <orderEntry type="library" name="Maven: com.sun.xml.messaging.saaj:saaj-impl:1.5.2" level="project" />
     <orderEntry type="library" name="Maven: jakarta.xml.soap:jakarta.xml.soap-api:1.4.2" level="project" />

@@ -1,4 +1,5 @@
 com\moortahc\server\comment\model\PostDto.class
+com\moortahc\server\comment\controller\CommentController.class
 com\moortahc\server\comment\service\CommentService.class
 com\moortahc\server\comment\CommentDriver.class
 com\moortahc\server\comment\service\CommentValidator.class

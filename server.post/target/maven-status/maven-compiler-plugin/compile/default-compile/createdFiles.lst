@@ -12,3 +12,4 @@ com\moortahc\server\post\service\PostValidator.class
 com\moortahc\server\post\controller\PostController.class
 com\moortahc\server\post\service\exceptions\InvalidPostException.class
 com\moortahc\server\post\service\exceptions\PostDNEException.class
+com\moortahc\server\post\model\MessageDto$MessageDtoBuilder.class

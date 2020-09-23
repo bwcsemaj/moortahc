@@ -2,9 +2,11 @@ package com.moortahc.server.post.service;
 
 import com.moortahc.server.post.model.PostEntity;
 import com.moortahc.server.post.service.exceptions.InvalidPostException;
+import org.springframework.stereotype.Service;
 
 import java.time.Instant;
 
+@Service
 public class PostValidator {
     
     public static PostEntity validate(Long userId, String roomName, String content) throws InvalidPostException {

@@ -2,6 +2,7 @@ package com.moortahc.server.comment.model;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.databind.SerializationFeature;
 import com.moortahc.server.comment.controller.CommentController;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -25,13 +26,16 @@ public class CommentDto implements Comment {
     private Instant createdDate;
     
     public String convertToMessageJSON() {
+        var objectMapper = new ObjectMapper();
+        objectMapper.configure(SerializationFeature.WRITE_DATES_AS_TIMESTAMPS, false);
         try {
-            return new ObjectMapper().writeValueAsString(MessageDto.builder()
+            return objectMapper.writeValueAsString(MessageDto.builder()
                     .commentId(id)
                     .fromId(fromId)
                     .content(content)
                     .postId(postId)
-                    .createdDate(createdDate));
+                    .createdDate(createdDate)
+                    .build());
         } catch (JsonProcessingException e) {
             throw new RuntimeException(e);
         }

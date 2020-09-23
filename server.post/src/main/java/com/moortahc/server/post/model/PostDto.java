@@ -2,6 +2,7 @@ package com.moortahc.server.post.model;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.databind.SerializationFeature;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -19,9 +20,17 @@ public class PostDto implements Post{
     private Instant createdDate;
     private String roomName;
     
-    public String convertToMessageJSON()  {
+    public String convertToMessageJSON() {
+        var objectMapper = new ObjectMapper();
+        objectMapper.configure(SerializationFeature.WRITE_DATES_AS_TIMESTAMPS, false);
         try {
-            return new ObjectMapper().writeValueAsString(this);
+            return objectMapper.writeValueAsString(MessageDto.builder()
+                    .postId(id)
+                    .fromId(fromId)
+                    .content(content)
+                    .createdDate(createdDate)
+                    .roomName(roomName)
+                    .build());
         } catch (JsonProcessingException e) {
             throw new RuntimeException(e);
         }
