@@ -1,10 +1,13 @@
+C:\Users\BWC_S\per-scholas\dev\moortahc\server.post\src\main\java\com\moortahc\server\post\model\MessageDto.java
+C:\Users\BWC_S\per-scholas\dev\moortahc\server.post\src\main\java\com\moortahc\server\post\service\exceptions\InvalidPostException.java
+C:\Users\BWC_S\per-scholas\dev\moortahc\server.post\src\main\java\com\moortahc\server\post\security\SecurityConfig.java
+C:\Users\BWC_S\per-scholas\dev\moortahc\server.post\src\main\java\com\moortahc\server\post\model\PostEntity.java
+C:\Users\BWC_S\per-scholas\dev\moortahc\server.post\src\main\java\com\moortahc\server\post\controller\PostController.java
 C:\Users\BWC_S\per-scholas\dev\moortahc\server.post\src\main\java\com\moortahc\server\post\config\PostConfig.java
 C:\Users\BWC_S\per-scholas\dev\moortahc\server.post\src\main\java\com\moortahc\server\post\service\PostService.java
 C:\Users\BWC_S\per-scholas\dev\moortahc\server.post\src\main\java\com\moortahc\server\post\repo\PostRepository.java
 C:\Users\BWC_S\per-scholas\dev\moortahc\server.post\src\main\java\com\moortahc\server\post\model\Post.java
-C:\Users\BWC_S\per-scholas\dev\moortahc\server.post\src\main\java\com\moortahc\server\post\security\SecurityConfig.java
-C:\Users\BWC_S\per-scholas\dev\moortahc\server.post\src\main\java\com\moortahc\server\post\model\PostEntity.java
-C:\Users\BWC_S\per-scholas\dev\moortahc\server.post\src\main\java\com\moortahc\server\post\controller\PostController.java
+C:\Users\BWC_S\per-scholas\dev\moortahc\server.post\src\main\java\com\moortahc\server\post\service\PostValidator.java
 C:\Users\BWC_S\per-scholas\dev\moortahc\server.post\src\main\java\com\moortahc\server\post\PostDriver.java
 C:\Users\BWC_S\per-scholas\dev\moortahc\server.post\src\main\java\com\moortahc\server\post\model\PostDto.java
 C:\Users\BWC_S\per-scholas\dev\moortahc\server.post\src\main\java\com\moortahc\server\post\service\exceptions\PostDNEException.java

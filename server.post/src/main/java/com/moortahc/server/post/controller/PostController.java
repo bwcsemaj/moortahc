@@ -38,16 +38,17 @@ public class PostController {
         }
     }
     
-    @PostMapping
-    public ResponseEntity<PostDto> create(HttpServletRequest request, @RequestParam String content){
+    @PostMapping("/{roomName}")
+    public ResponseEntity<PostDto> create(HttpServletRequest request, @PathVariable String roomName, @RequestParam String content){
         Authentication auth = SecurityContextHolder.getContext().getAuthentication();
         try {
             var userId = Long.valueOf(jwtTokenUtil.getUsernameFromRequest(request));
-            return new ResponseEntity<>(convertTo(postService.tryCreatePost(userId, content)), HttpStatus.OK);
-        }  catch (InvalidPostException e) {
+            return new ResponseEntity<>(convertTo(postService.tryCreatePost(userId, content, roomName)), HttpStatus.CREATED);
+        }   catch (Exception e){
+            // this will be replaced
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);
         }
-        postService.tryCreatePost(postDto);
+        
     }
     
     public static PostDto convertTo(PostEntity postEntity) {

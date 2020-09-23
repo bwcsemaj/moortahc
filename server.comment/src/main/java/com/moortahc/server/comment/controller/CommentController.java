@@ -1,5 +1,6 @@
 package com.moortahc.server.comment.controller;
 
+import com.fasterxml.jackson.core.JsonProcessingException;
 import com.moortahc.server.comment.model.CommentDto;
 import com.moortahc.server.comment.model.CommentEntity;
 import com.moortahc.server.comment.service.CommentService;
@@ -42,10 +43,12 @@ public class CommentController {
         Authentication auth = SecurityContextHolder.getContext().getAuthentication();
         try {
             var userId = Long.valueOf(jwtTokenUtil.getUsernameFromRequest(request));
-            return new ResponseEntity<>(convertTo(commentService.tryCreateComment(userId, content, postId)), HttpStatus.OK);
+            return new ResponseEntity<>(convertTo(commentService.tryCreateComment(userId, content, postId)), HttpStatus.CREATED);
         } catch (PostDNEException e) {
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);
         } catch (InvalidCommentException e) {
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+        } catch (JsonProcessingException e) {
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);
         }
     }

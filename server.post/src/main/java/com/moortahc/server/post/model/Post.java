@@ -20,6 +20,11 @@ public interface Post {
     public String getContent();
     
     /**
+     * @return the Room name the post is made for
+     */
+    public String getRoomName();
+    
+    /**
      * @return the date the Post was created on
      */
     public Instant getCreatedDate();

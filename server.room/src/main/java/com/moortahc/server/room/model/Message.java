@@ -12,4 +12,6 @@ public interface Message {
     public String getContent();
     
     public Instant getCreatedDate();
+    
+    public String getRoomName();
 }

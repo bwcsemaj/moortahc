@@ -1,10 +1,13 @@
 package com.moortahc.server.comment.service;
 
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.moortahc.server.comment.controller.CommentController;
 import com.moortahc.server.comment.model.CommentEntity;
 import com.moortahc.server.comment.repo.CommentRepository;
 import com.moortahc.server.comment.service.exceptions.InvalidCommentException;
 import com.moortahc.server.comment.service.exceptions.PostDNEException;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpEntity;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 
@@ -33,7 +36,12 @@ public class CommentService {
         var savedCommentEntity = commentRepository.save(verifiedCommentEntity);
 
         //Add comment to Message Broker
-        restTemplate.put(String.format("http://server-room/comment?roomName=%s", verifiedPostDto.getRoomName()), Void.class);
+        //#TODO Down the line use RabbitMQ for message broker, in this case just directly call on micro service.
+        var savedCommentDto = CommentController.convertTo(savedCommentEntity);
+        var request =
+                new HttpEntity<String>(savedCommentDto.convertToMessageJSON());
+        var responseEntity = restTemplate.
+                postForEntity("http://server-room/dispatch", request, Void.class);
         
         return savedCommentEntity;
     }

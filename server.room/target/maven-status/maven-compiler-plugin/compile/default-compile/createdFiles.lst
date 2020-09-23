@@ -1,5 +1,7 @@
-com\moortahc\server\room\RoomDriver.class
 com\moortahc\server\room\config\RoomConfig.class
-com\moortahc\server\room\security\SecurityConfig.class
-com\moortahc\server\room\service\SseEmitters.class
+com\moortahc\server\room\model\Message.class
 com\moortahc\server\room\controller\RoomController.class
+com\moortahc\server\room\RoomDriver.class
+com\moortahc\server\room\model\MessageDto.class
+com\moortahc\server\room\sse\SseEmitters.class
+com\moortahc\server\room\security\SecurityConfig.class

@@ -1,13 +1,11 @@
 package com.moortahc.server.post.model;
 
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
 import java.time.Instant;
 
 @Data
@@ -19,4 +17,13 @@ public class PostDto implements Post{
     private Long fromId;
     private String content;
     private Instant createdDate;
+    private String roomName;
+    
+    public String convertToMessageJSON()  {
+        try {
+            return new ObjectMapper().writeValueAsString(this);
+        } catch (JsonProcessingException e) {
+            throw new RuntimeException(e);
+        }
+    }
 }

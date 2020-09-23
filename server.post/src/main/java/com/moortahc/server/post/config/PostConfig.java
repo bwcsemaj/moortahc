@@ -33,6 +33,7 @@ public class PostConfig implements InitializingBean {
                 .content("Hello")
                 .fromId(0l)
                 .createdDate(Instant.now())
+                .roomName("roomName")
                 .build());
     }
 }

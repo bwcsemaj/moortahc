@@ -1,5 +1,7 @@
 package com.moortahc.server.comment.model;
 
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -15,4 +17,6 @@ public class PostDto {
     private Long fromId;
     private String content;
     private Instant createdDate;
+    private String roomName;
+    
 }

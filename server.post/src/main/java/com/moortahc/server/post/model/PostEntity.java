@@ -25,4 +25,6 @@ public class PostEntity implements Post{
     private String content;
     
     private Instant createdDate;
+    
+    private String roomName;
 }

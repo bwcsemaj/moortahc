@@ -1,4 +1,4 @@
-package com.moortahc.server.room.service;
+package com.moortahc.server.room.sse;
 
 import org.springframework.web.servlet.mvc.method.annotation.SseEmitter;
 
