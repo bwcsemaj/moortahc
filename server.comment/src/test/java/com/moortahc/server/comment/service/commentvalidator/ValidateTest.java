@@ -1,7 +1,6 @@
 package com.moortahc.server.comment.service.commentvalidator;
 
 import com.moortahc.server.comment.CommentDriver;
-import com.moortahc.server.comment.model.CommentDto;
 import com.moortahc.server.comment.model.CommentEntity;
 import com.moortahc.server.comment.model.PostDto;
 import com.moortahc.server.comment.service.CommentValidator;
@@ -15,7 +14,6 @@ import org.junit.jupiter.params.provider.ValueSource;
 import org.junit.runner.RunWith;
 import org.mockito.Mockito;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.context.annotation.ComponentScan;
@@ -60,7 +58,7 @@ public class ValidateTest {
         Mockito.when(restTemplateMock.getForObject(givenURL, PostDto.class)).thenReturn(expectedPostDto);
         
         //when
-        var actualCommentDto = commentValidator.validate(givenFromId, givenContent, givenPostId);
+        var actualCommentDto = commentValidator.validateComment(givenFromId, givenContent, givenPostId);
         //lets assume the time created is what is expected
         actualCommentDto.setCreatedDate(expectedCommentDto.getCreatedDate());
         
@@ -88,7 +86,7 @@ public class ValidateTest {
         
         //when
         try{
-            var actualCommentDto = commentValidator.validate(givenFromId, invalidContent, givenPostId);
+            var actualCommentDto = commentValidator.validateComment(givenFromId, invalidContent, givenPostId);
         }   catch(InvalidCommentException exception){
             return;
         }   catch(Exception e){
@@ -117,7 +115,7 @@ public class ValidateTest {
         Mockito.when(restTemplateMock.getForObject(givenURL, PostDto.class)).thenReturn(expectedPostDto);
         
         //when
-        var actualCommentDto = commentValidator.validate(givenFromId, givenContent, givenPostId);
+        var actualCommentDto = commentValidator.validateComment(givenFromId, givenContent, givenPostId);
         //lets assume the time created is what is expected
         actualCommentDto.setCreatedDate(expectedCommentDto.getCreatedDate());
         

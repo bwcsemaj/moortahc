@@ -26,19 +26,23 @@ public class CommentValidator {
         this.restTemplate = restTemplate;
         this.jwtTokenUtil = jwtTokenUtil;
     }
-
-    public CommentEntity validate(Long fromId, String content, Long postId) throws PostDNEException, InvalidCommentException {
+    
+    public PostDto validatePost(Long postId) throws PostDNEException {
         //Validate the post
         var opPost = Optional.ofNullable(restTemplate.getForObject(String.format("http://server-post/findById?postId=%s", postId), PostDto.class));
         //If Post doesn't exist than comment can't exist
         if(opPost.isEmpty()){
             throw new PostDNEException();
         }
+        return opPost.get();
+    }
 
+    public CommentEntity validateComment(Long fromId, String content, Long postId) throws InvalidCommentException {
         //Make sure content length is less than max
         if (content == null || content.isBlank() || content.length() > MAX_CONTENT_LENGTH) {
             throw new InvalidCommentException();
         }
+        
         return CommentEntity.builder()
                 .postId(postId)
                 .content(content)

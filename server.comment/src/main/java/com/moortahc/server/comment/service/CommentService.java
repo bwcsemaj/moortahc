@@ -23,14 +23,17 @@ public class CommentService {
     }
 
     public CommentEntity tryCreateComment(Long fromId, String content, Long postId) throws InvalidCommentException, PostDNEException {
+       //Validate post
+        var verifiedPostDto = commentValidator.validatePost(postId);
+       
         //Validate comment
-        var verifiedCommentEntity = commentValidator.validate(fromId, content, postId);
+        var verifiedCommentEntity = commentValidator.validateComment(fromId, content, postId);
 
         //Save Comment
         var savedCommentEntity = commentRepository.save(verifiedCommentEntity);
 
         //Add comment to Message Broker
-        // restTemplate.getForObject("http://server-room/", Void.class);
+        restTemplate.put(String.format("http://server-room/comment?roomName=%s", verifiedPostDto.getRoomName()), Void.class);
         
         return savedCommentEntity;
     }

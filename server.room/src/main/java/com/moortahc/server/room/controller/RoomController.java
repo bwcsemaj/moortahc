@@ -1,19 +1,26 @@
 package com.moortahc.server.room.controller;
 
-import org.springframework.http.MediaType;
-import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.servlet.mvc.method.annotation.SseEmitter;
+import com.moortahc.server.room.model.MessageDto;
+import org.springframework.messaging.handler.annotation.DestinationVariable;
+import org.springframework.messaging.handler.annotation.MessageMapping;
+import org.springframework.messaging.handler.annotation.Payload;
+import org.springframework.messaging.handler.annotation.SendTo;
+import org.springframework.messaging.simp.SimpMessageHeaderAccessor;
+import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.RestController;
 
-import java.nio.file.Path;
-
-@Controller
+@RestController
 public class RoomController {
     
+    @MessageMapping("/chat.sendMessage")
+    @SendTo("/topic/public")
+    public MessageDto sendMessage(@Payload MessageDto chatMessage) {
+        return chatMessage;
+    }
     
-    @GetMapping(path = "/{roomId}", produces = MediaType.TEXT_EVENT_STREAM_VALUE)
-    public SseEmitter create(@PathVariable String roomId){
+    @PutMapping("/comment/send")
+    public void sendComment(@RequestParam String roomId){
     
     }
 }

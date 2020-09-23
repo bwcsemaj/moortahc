@@ -8,6 +8,7 @@ C:\Users\BWC_S\per-scholas\dev\moortahc\server.authenticate\src\main\java\com\mo
 C:\Users\BWC_S\per-scholas\dev\moortahc\server.authenticate\src\main\java\com\moortahc\server\authenticate\repo\UserRepository.java
 C:\Users\BWC_S\per-scholas\dev\moortahc\server.authenticate\src\main\java\com\moortahc\server\authenticate\service\UserDetailsServiceImpl.java
 C:\Users\BWC_S\per-scholas\dev\moortahc\server.authenticate\src\main\java\com\moortahc\server\authenticate\model\UserRole.java
+C:\Users\BWC_S\per-scholas\dev\moortahc\server.authenticate\src\main\java\com\moortahc\server\authenticate\service\UserValidator.java
 C:\Users\BWC_S\per-scholas\dev\moortahc\server.authenticate\src\main\java\com\moortahc\server\authenticate\model\UserDto.java
 C:\Users\BWC_S\per-scholas\dev\moortahc\server.authenticate\src\main\java\com\moortahc\server\authenticate\AuthenticateDriver.java
 C:\Users\BWC_S\per-scholas\dev\moortahc\server.authenticate\src\main\java\com\moortahc\server\authenticate\model\LoginCredentials.java

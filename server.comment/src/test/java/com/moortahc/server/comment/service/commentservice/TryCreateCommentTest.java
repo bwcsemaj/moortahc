@@ -1,6 +1,5 @@
 package com.moortahc.server.comment.service.commentservice;
 
-import com.moortahc.server.comment.controller.CommentController;
 import com.moortahc.server.comment.model.CommentEntity;
 import com.moortahc.server.comment.repo.CommentRepository;
 import com.moortahc.server.comment.service.CommentService;
@@ -48,7 +47,7 @@ public class TryCreateCommentTest {
                 .content("content")
                 .fromId(1l)
                 .postId(99l).build();
-        Mockito.when(commentValidatorMock.validate(givenFromId, givenContent, givenPostId)).thenReturn(expectedCommentEntity);
+        Mockito.when(commentValidatorMock.validateComment(givenFromId, givenContent, givenPostId)).thenReturn(expectedCommentEntity);
         Mockito.when(commentRepositoryMock.save(expectedCommentEntity)).thenReturn(expectedCommentEntity);
         
         //when
@@ -69,7 +68,7 @@ public class TryCreateCommentTest {
                 .content("content")
                 .fromId(1l)
                 .postId(99l).build();
-        Mockito.when(commentValidatorMock.validate(givenFromId, givenContent, givenPostId)).thenThrow(new InvalidCommentException());
+        Mockito.when(commentValidatorMock.validateComment(givenFromId, givenContent, givenPostId)).thenThrow(new InvalidCommentException());
         Mockito.when(commentRepositoryMock.save(expectedCommentEntity)).thenReturn(expectedCommentEntity);
         
         //when
@@ -90,7 +89,7 @@ public class TryCreateCommentTest {
                 .content("content")
                 .fromId(1l)
                 .postId(99l).build();
-        Mockito.when(commentValidatorMock.validate(givenFromId, givenContent, givenPostId)).thenThrow(new PostDNEException());
+        Mockito.when(commentValidatorMock.validateComment(givenFromId, givenContent, givenPostId)).thenThrow(new PostDNEException());
         Mockito.when(commentRepositoryMock.save(expectedCommentEntity)).thenReturn(expectedCommentEntity);
         
         //when
