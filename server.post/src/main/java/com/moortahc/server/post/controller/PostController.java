@@ -38,8 +38,8 @@ public class PostController {
         }
     }
     
-    @PostMapping("/{roomName}")
-    public ResponseEntity<PostDto> create(HttpServletRequest request, @PathVariable String roomName, @RequestParam String content){
+    @PostMapping("/create")
+    public ResponseEntity<PostDto> create(HttpServletRequest request, @RequestParam String roomName, @RequestParam String content){
         Authentication auth = SecurityContextHolder.getContext().getAuthentication();
         try {
             var userId = Long.valueOf(jwtTokenUtil.getUsernameFromRequest(request));

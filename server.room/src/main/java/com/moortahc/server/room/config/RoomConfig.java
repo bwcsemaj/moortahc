@@ -1,11 +1,14 @@
 package com.moortahc.server.room.config;
 
+import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
 import com.moortahc.server.room.sse.SseEmitters;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.InitializingBean;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.Primary;
+import org.springframework.http.converter.json.Jackson2ObjectMapperBuilder;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -33,6 +36,5 @@ public class RoomConfig  {
     public Map<String, SseEmitters> roomIdToSseEmitters() {
         return new ConcurrentHashMap<>();
     }
-
-
+    
 }

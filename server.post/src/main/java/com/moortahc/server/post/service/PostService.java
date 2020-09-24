@@ -1,10 +1,14 @@
 package com.moortahc.server.post.service;
 
+import com.moortahc.server.post.controller.PostController;
 import com.moortahc.server.post.model.PostEntity;
 import com.moortahc.server.post.repo.PostRepository;
 import com.moortahc.server.post.service.exceptions.InvalidPostException;
 import com.moortahc.server.post.service.exceptions.PostDNEException;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpEntity;
+import org.springframework.http.HttpHeaders;
+import org.springframework.http.MediaType;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 
@@ -34,10 +38,17 @@ public class PostService {
         //Validate Post
         var verifiedPostEntity = PostValidator.validate(userId, roomName, content);
         
+        //Save Post
         var postEntity = postRepository.save(verifiedPostEntity);
-        
-        //Send Post Entity to Room
-        //restTemplate.put("http://server-room/post");
+    
+        //Add comment to Message Broker
+        //#TODO Down the line use RabbitMQ for message broker, in this case just directly call on micro service.
+        var postDto = PostController.convertTo(postEntity);
+        var headers = new HttpHeaders();
+        headers.setContentType(MediaType.APPLICATION_JSON);
+        var request = new HttpEntity<String>(postDto.convertToMessageJSON(), headers);
+        var responseEntity = restTemplate.
+                postForEntity("http://server-room/dispatch", request, Void.class);
         
         return postEntity;
     }

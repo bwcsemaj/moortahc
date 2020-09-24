@@ -2,7 +2,7 @@ server:
   port: 8080
 spring:
   application:
-    name: server-gateway
+    name: server-springcloudgateway
   cloud:
     gateway:
       routes:
@@ -12,12 +12,12 @@ spring:
             - Path=/r/**
           filters:
             - StripPrefix=1
-        - id: server-authenticate
-          uri: lb://SERVER-AUTHENTICATE
+        - id: server-everything-besides-room
+          uri: lb://SERVER-GATEWAY
           predicates:
-            - Path=/a/**
+            - Path=/**
           filters:
-            - StripPrefix=1
+            - StripPrefix=0
 #  security:
 #    oauth2:
 #      client:
@@ -27,10 +27,12 @@ spring:
 #        clientSecret: passwordforauthserver
 #      resource:
 #        userInfoUri: http://localhost:9000/user
+
 eureka:
   client:
     serviceUrl:
       defaultZone: http://localhost:8761/eureka/
+
 logging:
   level:
     root: debug

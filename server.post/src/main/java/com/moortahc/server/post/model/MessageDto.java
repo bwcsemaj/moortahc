@@ -1,5 +1,6 @@
 package com.moortahc.server.post.model;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -16,7 +17,7 @@ public class MessageDto {
     
     private final String content;
     
-    private final Instant createdDate;
+    private final String createdDate;
     
     private final String roomName;
     

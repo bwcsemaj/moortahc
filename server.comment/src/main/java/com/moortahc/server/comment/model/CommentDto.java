@@ -25,7 +25,7 @@ public class CommentDto implements Comment {
     private String content;
     private Instant createdDate;
     
-    public String convertToMessageJSON() {
+    public String convertToMessageJSON(PostDto postDto) {
         var objectMapper = new ObjectMapper();
         objectMapper.configure(SerializationFeature.WRITE_DATES_AS_TIMESTAMPS, false);
         try {
@@ -34,7 +34,8 @@ public class CommentDto implements Comment {
                     .fromId(fromId)
                     .content(content)
                     .postId(postId)
-                    .createdDate(createdDate)
+                    .createdDate(createdDate.toString())
+                    .roomName(postDto.getRoomName())
                     .build());
         } catch (JsonProcessingException e) {
             throw new RuntimeException(e);

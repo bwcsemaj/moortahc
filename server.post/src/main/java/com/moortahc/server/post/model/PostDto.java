@@ -22,13 +22,13 @@ public class PostDto implements Post{
     
     public String convertToMessageJSON() {
         var objectMapper = new ObjectMapper();
-        objectMapper.configure(SerializationFeature.WRITE_DATES_AS_TIMESTAMPS, false);
+       // objectMapper.configure(SerializationFeature.WRITE_DATES_AS_TIMESTAMPS, false);
         try {
             return objectMapper.writeValueAsString(MessageDto.builder()
-                    .postId(id)
                     .fromId(fromId)
                     .content(content)
-                    .createdDate(createdDate)
+                    .postId(id)
+                    .createdDate(createdDate.toString())
                     .roomName(roomName)
                     .build());
         } catch (JsonProcessingException e) {
