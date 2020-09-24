@@ -23,6 +23,21 @@
     COLOR-20: rgb(1,1,1, 1);
 */
 
+html,body{height:100%;}
+
+.bg-purple {
+  background: rgb(48,0,50);
+}
+.bg-gray {
+  background: rgb(74,74,74);
+}
+.bg-blue {
+  background: rgb(50,101,196);
+}
+.bg-red {
+  background: rgb(196,50,53);
+}
+
 * {
     /*https://stackoverflow.com/questions/7008039/css-html5-why-does-my-body-have-a-spacing-at-the-top*/
     margin: 0px;
@@ -49,7 +64,7 @@ body {
 }
 
 #logo-container {
-    background-color: #FF0000;
+    background-color: #1900ff;
     height: 65px;
 }
 
@@ -81,4 +96,8 @@ body {
 
 #logo-text{
     font-size: 44px;
+}
+
+#body-container{
+    background-color: green;
 }
