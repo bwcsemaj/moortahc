@@ -5,6 +5,7 @@ import com.moortahc.server.common.security.JwtConfig;
 import com.moortahc.server.common.security.JwtTokenUtil;
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.SignatureAlgorithm;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;
@@ -24,6 +25,7 @@ import java.util.Date;
 import java.util.stream.Collectors;
 
 
+@Slf4j
 public class JwtEmailPasswordAuthenticationFilter extends UsernamePasswordAuthenticationFilter {
     private final AuthenticationManager authenticationManager;
     private final JwtConfig jwtConfig;
@@ -35,13 +37,14 @@ public class JwtEmailPasswordAuthenticationFilter extends UsernamePasswordAuthen
         this.jwtTokenUtil = jwtTokenUtil;
     
         //Override default path
-        this.setRequiresAuthenticationRequestMatcher(new AntPathRequestMatcher(jwtConfig.getUri(), "POST"));
+        this.setRequiresAuthenticationRequestMatcher(new AntPathRequestMatcher("/", "POST"));
     }
     
     @Override
     public Authentication attemptAuthentication(HttpServletRequest request, HttpServletResponse response)
             throws AuthenticationException {
-        
+        log.info("{}", request);
+        log.info("{}", response);
         try {
             // 1. Get credentials from request
             var creds = new ObjectMapper().readValue(request.getInputStream(), UserCredentials.class);
@@ -64,6 +67,8 @@ public class JwtEmailPasswordAuthenticationFilter extends UsernamePasswordAuthen
     protected void successfulAuthentication(HttpServletRequest request, HttpServletResponse response, FilterChain chain,
                                             Authentication auth) throws IOException, ServletException {
         String token = jwtTokenUtil.generateToken(auth);
+    
+        log.info("{}", token);
         
         // Add token to header
         response.addHeader(jwtConfig.getHeader(), jwtConfig.getPrefix() + token);

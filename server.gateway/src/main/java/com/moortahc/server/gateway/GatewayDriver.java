@@ -1,4 +1,4 @@
-package com.moortahc.server.gateway;
+package com.moortahc.server.gateway.driver;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -11,9 +11,9 @@ import org.springframework.context.annotation.ComponentScan;
 @ComponentScan("com.moortahc.server")
 @EnableZuulProxy
 public class GatewayDriver {
-    
+
     public static void main(String[] args) {
         SpringApplication.run(GatewayDriver.class, args);
     }
-    
+
 }

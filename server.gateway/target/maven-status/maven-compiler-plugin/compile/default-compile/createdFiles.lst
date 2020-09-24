@@ -1,4 +1,4 @@
 com\moortahc\server\gateway\security\JwtAuthenticationEntryPoint.class
 com\moortahc\server\gateway\security\SecurityTokenConfig.class
+com\moortahc\server\gateway\driver\GatewayDriver.class
 com\moortahc\server\gateway\security\JwtTokenAuthenticationFilter.class
-com\moortahc\server\gateway\GatewayDriver.class

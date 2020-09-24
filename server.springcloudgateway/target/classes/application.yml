@@ -1,0 +1,36 @@
+server:
+  port: 8080
+spring:
+  application:
+    name: server-gateway
+  cloud:
+    gateway:
+      routes:
+        - id: server-room
+          uri: lb://SERVER-ROOM
+          predicates:
+            - Path=/r/**
+          filters:
+            - StripPrefix=1
+        - id: server-authenticate
+          uri: lb://SERVER-AUTHENTICATE
+          predicates:
+            - Path=/a/**
+          filters:
+            - StripPrefix=1
+#  security:
+#    oauth2:
+#      client:
+#        accessTokenUri: http://localhost:7070/authserver/oauth/token
+#        userAuthorizationUri: http://localhost:7070/authserver/oauth/authorize
+#        clientId: authserver
+#        clientSecret: passwordforauthserver
+#      resource:
+#        userInfoUri: http://localhost:9000/user
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8761/eureka/
+logging:
+  level:
+    root: debug

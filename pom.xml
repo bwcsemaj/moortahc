@@ -16,6 +16,7 @@
         <module>server.room</module>
         <module>server.comment</module>
         <module>client</module>
+        <module>server.springcloudgateway</module>
     </modules>
     <name>parent</name>
     <description>Chatroom for all websites.</description>
@@ -29,10 +30,6 @@
     </properties>
 
     <dependencies>
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-web-services</artifactId>
-        </dependency>
 
         <dependency>
             <groupId>junit</groupId>

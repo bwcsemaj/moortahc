@@ -32,7 +32,7 @@ public class JwtTokenAuthenticationFilter extends OncePerRequestFilter {
             throws ServletException, IOException {
         // 1. get the authentication header. Tokens are supposed to be passed in the authentication header
         String header = request.getHeader(jwtConfig.getHeader());
-
+    
         // 2. validate the header and check the prefix
         if(header == null || !header.startsWith(jwtConfig.getPrefix())) {
             chain.doFilter(request, response);  		// If not valid, go to the next filter.
