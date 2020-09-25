@@ -23,19 +23,24 @@
     COLOR-20: rgb(1,1,1, 1);
 */
 
-html,body{height:100%;}
+html, body {
+    height: 100%;
+}
 
 .bg-purple {
-  background: rgb(48,0,50);
+    background: rgb(48, 0, 50);
 }
+
 .bg-gray {
-  background: rgb(74,74,74);
+    background: rgb(74, 74, 74);
 }
+
 .bg-blue {
-  background: rgb(50,101,196);
+    background: rgb(50, 101, 196);
 }
+
 .bg-red {
-  background: rgb(196,50,53);
+    background: rgb(196, 50, 53);
 }
 
 * {
@@ -55,7 +60,6 @@ html {
     padding: 0px;
 }
 
-
 body {
     height: 100%;
     width: 100%;
@@ -68,13 +72,19 @@ body {
     height: 65px;
 }
 
-#center-container {
+#login-container {
     background-color: aquamarine;
+    height: 65px;
+    position: absolute;
+}
+
+#login-button {
+    background-color: red;
     height: 65px;
 }
 
-#bottom-container {
-    background-color: brown;
+#register-button {
+    background-color: darkblue;
     height: 65px;
 }
 
@@ -83,21 +93,89 @@ body {
     height: 35px;
 }
 
-#url-icon{
+#url-icon {
     background-color: yellow;
     height: 35px;
     width: 35px;
 }
 
-#url-text-input{
+#url-text-input {
     background-color: purple;
     height: 35px;
 }
 
-#logo-text{
+#logo-text {
     font-size: 44px;
 }
 
-#body-container{
+#body-container {
     background-color: green;
+}
+
+#bottom-holder-container {
+    background-color: lightcoral;
+    height: 65px;
+}
+
+#login-option-container {
+    background-color: purple;
+    height: 65px;
+    position: absolute;
+}
+
+#submit-button {
+    background-color: lightblue;
+    height: 65px;
+}
+
+#forgot-button {
+    background-color: blue;
+    height: 65px;
+}
+
+#cancel-button {
+    background-color: red;
+    height: 65px;
+}
+
+#forgot-option-container{
+    background-color: orange;
+    height: 65px;
+    position: absolute;
+}
+
+#send-code-button {
+    background-color: purple;
+    height: 65px;
+}
+
+#enter-code-option-container{
+    background-color: red;
+    height: 65px;
+    position: absolute;
+}
+
+#enter-code-button {
+    background-color: pink;
+    height: 65px;
+}
+
+#send-message-button{
+    background-color: yellow;
+}
+
+#gap-container{
+    background-color: orange;
+}
+
+#user-name-container{
+    background-color: pink;
+}
+
+#form-icon{
+    width:45px;
+}
+
+#send-code-email-container{
+    background-color: salmon;
 }
