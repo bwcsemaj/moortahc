@@ -23,6 +23,8 @@ public class MessageDto implements Message {
     
     private String roomName;
     
+    private Long fromId;
+    
     public Optional<Long> getCommentId(){
         return Optional.ofNullable(commentId);
     }

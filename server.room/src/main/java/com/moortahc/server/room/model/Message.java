@@ -9,6 +9,8 @@ public interface Message {
     
     public Optional<Long> getCommentId();
     
+    public Long getFromId();
+    
     public String getContent();
     
     public Instant getCreatedDate();

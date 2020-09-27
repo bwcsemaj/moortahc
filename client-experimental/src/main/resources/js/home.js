@@ -14,11 +14,23 @@ var chatMessagesListGroup = document.getElementById("chat-messages-list-group");
 
 // BOTTOM CONTAINER NODES
 var loginRegisterContainer = document.getElementById("login-option-container");
-var forgotOptionContainer = document.getElementById("forgot-option-container");
-var enterCodeOptionContainer = document.getElementById("enter-code-option-container");
-var sendMessageContainer = document.getElementById("enter-code-option-container");
+var loginOptionSubmitButton = document.getElementById("login-option-submit-button");
+var loginOptionRegisterButton = document.getElementById("login-option-forgot-button");
+var loginOptionCancelButton = document.getElementById("login-option-register-button");
 
-var ctext=document.getElementById("c").value;
+
+var forgotOptionContainer = document.getElementById("forgot-option-container");
+var forgotOptionSendCodeButton = document.getElementById("forgot-option-send-code-button");
+var forgotOptionCancelButton = document.getElementById("forgot-option-cancel-button");
+
+
+var enterCodeOptionContainer = document.getElementById("enter-code-option-container");
+var enterCodeOptionEnterCodeButton = document.getElementById("enter-code-option-enter-code-button");
+var enterCodeOptionCancelButton = document.getElementById("enter-code-option-cancel-button");
+
+var sendMessageContainer = document.getElementById("send-message-container");
+var sendMessageSendButton = document.getElementById("send-message-send-button");
+var sendMessageTextArea = document.getElementById("send-message-text-area");
 
 
 

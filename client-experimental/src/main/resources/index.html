@@ -93,7 +93,7 @@
                             <!-- CHAT MESSAGES -->
                             <div id="chat-messages-container"
                                 class="d-flex flex-column col-12 m-0 p-0 h-100 col-12 m-0 p-0">
-                                <ul id="chat-messages-list-view" class="list-group col m-0 p-0 h-100">
+                                <ul id="chat-messages-list-group" class="list-group col m-0 p-0 h-100">
                                     <li class="list-group-item">Cras justo odio</li>
                                     <li class="list-group-item">Dapibus ac facilisis in</li>
                                     <li class="list-group-item">Morbi leo risus</li>
@@ -120,6 +120,7 @@
                         </div> -->
                     <!-- </div> -->
 
+                    <!-- BOTTOM -->
                     <div id="bottom-holder-container" class="container-fluid d-flex flex-row m-0 p-0"
                         style="position: relative;">
 
@@ -131,34 +132,34 @@
 
                         <!-- SUBMIT FORGOT REGISTER -->
                         <div id="login-option-container" class="col-12 container-fluid d-flex m-0 p-0">
-                            <button class="col-5 d-flex justify-content-center" id="submit-button">SUBMIT</button>
-                            <button class="col-5 d-flex justify-content-center" id="register-button">FORGOT</button>
-                            <button class="col-2 d-flex justify-content-center" id="cancel-button">REGISTER</button>
+                            <button class="col-5 d-flex justify-content-center" id="login-option-submit-button">SUBMIT</button>
+                            <button class="col-5 d-flex justify-content-center" id="login-option-register-button">FORGOT</button>
+                            <button class="col-2 d-flex justify-content-center" id="login-option-cancel-button">REGISTER</button>
                         </div>
 
                         <!-- SEND CODE -->
                         <div id="forgot-option-container" class="col-12 container-fluid d-flex m-0 p-0">
-                            <button class="col-10 d-flex justify-content-center" id="send-code-button">SEND
+                            <button class="col-10 d-flex justify-content-center" id="forgot-option-send-code-button">SEND
                                 CODE</button>
-                            <button class="col-2 d-flex justify-content-center" id="cancel-button">X</button>
+                            <button class="col-2 d-flex justify-content-center" id="forgot-option-cancel-button">X</button>
                         </div>
 
                         <!-- ENTER CODE -->
                         <div id="enter-code-option-container" class="col-12 container-fluid d-flex m-0 p-0">
-                            <button class="col-10 d-flex justify-content-center" id="enter-code-button">ENTER
+                            <button class="col-10 d-flex justify-content-center" id="enter-code-option-enter-code-button">ENTER
                                 CODE</button>
-                            <button class="col-2 d-flex justify-content-center" id="cancel-button">X</button>
+                            <button class="col-2 d-flex justify-content-center" id="enter-code-option-cancel-button">X</button>
                         </div>
 
                         <!-- SEND MESSAGE -->
-                        <div class="input-group col-12 container-fluid d-flex m-0 p-0">
+                        <div id="send-message-container" class="input-group col-12 container-fluid d-flex m-0 p-0">
                             <div class="input-group-prepend m-0 p-0">
                                 <span class="input-group-text m-0 p-0">
-                                    <button class="col-12 d-flex justify-content-center h-100"
+                                    <button id="send-message-send-button" class="col-12 d-flex justify-content-center h-100"
                                         id="send-message-button">SEND</button>
                                 </span>
                             </div>
-                            <textarea class="form-control m-0 p-0" aria-label="With textarea"
+                            <textarea id="send-message-text-area" class="form-control m-0 p-0" aria-label="With textarea"
                                 style="resize: none;"></textarea>
                         </div>
                     </div>
