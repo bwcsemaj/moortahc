@@ -1,6 +1,6 @@
-com\moortahc\server\common\utility\BSUtility$Orientation.class
 com\moortahc\server\common\utility\BSUtility$1.class
+com\moortahc\server\common\utility\BSUtility.class
+com\moortahc\server\common\utility\BSUtility$Orientation.class
 com\moortahc\server\common\utility\MoorTahcUtility.class
 com\moortahc\server\common\security\JwtTokenUtil.class
 com\moortahc\server\common\security\JwtConfig.class
-com\moortahc\server\common\utility\BSUtility.class

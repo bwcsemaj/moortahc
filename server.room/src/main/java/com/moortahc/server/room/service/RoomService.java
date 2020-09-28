@@ -42,11 +42,10 @@ public class RoomService implements InitializingBean {
     
     @Override
     public void afterPropertiesSet() throws Exception {
-        RoomConfig.SCHEDULED_EXECUTOR.scheduleAtFixedRate(() -> {
-            log.info("{}", roomIdToSseEmitters.size());
-            new HashMap<>(roomIdToSseEmitters).values().forEach(sseEmitters -> {
-                sseEmitters.send("HELLO");
-            });
-        }, 0, 1, TimeUnit.SECONDS);
+//        RoomConfig.SCHEDULED_EXECUTOR.scheduleAtFixedRate(() -> {
+//            new HashMap<>(roomIdToSseEmitters).values().forEach(sseEmitters -> {
+//                sseEmitters.send("HELLO");
+//            });
+//        }, 0, 10, TimeUnit.SECONDS);
     }
 }

@@ -17,7 +17,6 @@
         <module>server.comment</module>
         <module>client</module>
         <module>server.springcloudgateway</module>
-        <module>client-experimental</module>
     </modules>
     <name>parent</name>
     <description>Chatroom for all websites.</description>

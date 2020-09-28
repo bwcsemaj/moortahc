@@ -33,7 +33,7 @@ public class RoomConfig  {
     public RoomConfig(Map<String, SseEmitters> roomIdToSseEmitters) {
         this.roomIdToSseEmitters = roomIdToSseEmitters;
         //#TODO fix the concurrency issue
-        BSUtility.SCHEDULED_EXECUTOR.scheduleAtFixedRate(()->{
+        SCHEDULED_EXECUTOR.scheduleAtFixedRate(()->{
             new HashMap<>(roomIdToSseEmitters).forEach((roomId, sseEmitters) ->{
                 if(sseEmitters.size() == 0){
                     roomIdToSseEmitters.remove(roomId);

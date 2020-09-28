@@ -10,6 +10,7 @@ import {HomeComponent} from './home/home.component';
 import {RouterModule, Routes} from "@angular/router";
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {HttpClientModule} from "@angular/common/http";
+import {CommonModule} from "@angular/common";
 
 const routes: Routes = [
   { path: 'chat', component: ChatComponent },
@@ -30,6 +31,7 @@ const routes: Routes = [
   ],
   imports: [
     BrowserModule,
+    CommonModule,
     RouterModule.forRoot(routes),
     FormsModule,
     HttpClientModule,

@@ -1,11 +1,14 @@
-import {Injectable} from '@angular/core';
+import {Injectable, OnInit, Output, EventEmitter} from '@angular/core';
 import {HttpClient, HttpHeaders, HttpParams} from "@angular/common/http";
 import {Router} from "@angular/router";
+import {Subject} from "rxjs";
+import {Post} from "./post";
+import {Comment} from "./comment";
 
 @Injectable({
   providedIn: 'root'
 })
-export class MessageService {
+export class MessageService implements OnInit {
 
   private baseUrl = 'http://localhost:8080';
 
@@ -14,25 +17,43 @@ export class MessageService {
     private router: Router) {
   }
 
+  ngOnInit(): void {
+  }
+
   eventSource: EventSource;
   currentRoomName: string;
 
+  postEmitter = new EventEmitter<Post>();
+  commentEmitter = new EventEmitter<Comment>();
+
   token: string;
 
-  createEventSource(roomName: string): EventSource{
+  createEventSource(roomName: string): EventSource {
     this.currentRoomName = roomName;
     return new EventSource(`http://localhost:8080/r/listen/${encodeURIComponent(this.currentRoomName)}`);
   }
 
-  connectTo(roomName: string){
-    if(this.eventSource != null){
+  connectTo(roomName: string) {
+    if (this.eventSource != null) {
       this.eventSource.close();
     }
     this.eventSource = this.createEventSource(roomName);
     this.eventSource.onmessage = (e) => {
-      console.log('connection message');
-      console.log(e.data);
+      let data = e.data;
+      //Post will not have a comment id
+      if (data.commentId == null) {
+        let post = JSON.parse(data);
+        post.id = post.postId;
+        this.postEmitter.emit(post);
+        return;
+      }
+
+      //Comments will have post id and comment id
+      let comment = JSON.parse(data);
+      comment.id = comment.commentId;
+      this.commentEmitter.emit(comment);
     }
+
     this.eventSource.onerror = (e) => {
       console.log('connection error');
       console.log(e);
@@ -43,9 +64,6 @@ export class MessageService {
       console.log(e);
     }
   }
-
-
-
 
 
   //localhost:8080/c/20?content=HELLO
@@ -62,7 +80,7 @@ export class MessageService {
       .catch(console.log);
   }
 
-  private getHeaders(){
+  private getHeaders() {
     return new HttpHeaders({
       'Content-Type': 'application/json',
       'Authorization': `Bearer ${this.token}`
@@ -73,10 +91,7 @@ export class MessageService {
   //localhost:8080/p/create?roomName=roomName&content=content
   createPost(content: string): Promise<void> {
     let headers = this.getHeaders();
-    console.log(headers.get("Authorization"));
-    console.log(this.token);
-    console.log(`${this.baseUrl}/p/create?roomName=${this.currentRoomName}&content=${content}`);
-    return this.http.post(`${this.baseUrl}/p/create?roomName=${encodeURIComponent(this.currentRoomName)}&content=${content}`,{}, {
+    return this.http.post(`${this.baseUrl}/p/create?roomName=${encodeURIComponent(this.currentRoomName)}&content=${content}`, {}, {
       headers: headers,
       observe: 'response'
     }).toPromise()
@@ -92,9 +107,6 @@ export class MessageService {
       emailAddress: emailAddress,
       password: password
     };
-    console.log(`${this.baseUrl}/a`);
-    console.log(emailAddress);
-    console.log(password);
     this.http.post(`${this.baseUrl}/a/`, creds, {
       headers: headers,
       observe: 'response'

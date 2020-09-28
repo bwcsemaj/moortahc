@@ -28,6 +28,8 @@ spring:
 #      resource:
 #        userInfoUri: http://localhost:9000/user
 
+
+
 eureka:
   client:
     serviceUrl:

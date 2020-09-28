@@ -10,7 +10,7 @@ import javax.persistence.*;
 import java.time.Instant;
 
 @Data
-@Entity
+@Entity(name = "post")
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
