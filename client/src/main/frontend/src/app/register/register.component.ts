@@ -1,42 +1,32 @@
-import {Observable} from "rxjs";
-import {Post} from "../post";
 import {Component, OnInit} from "@angular/core";
-import {Router} from '@angular/router';
 import {FormControl} from "@angular/forms";
 import {MessageService} from "../message-service";
 
 
 @Component({
-  selector: 'app-chat',
+  selector: 'app-register',
   templateUrl: './register.component.html',
   styleUrls: ['./register.component.css']
 })
 export class RegisterComponent implements OnInit {
 
-  content: string;
-
-  posts: Post[] = [];
-  comments: Comment[] = [];
+  passwordInput: FormControl;
+  emailAddressInput: FormControl;
+  firstNameInput: FormControl;
+  lastNameInput: FormControl;
 
   constructor(private messageService: MessageService) {
   }
 
   ngOnInit(): void {
-    this.messageService.commentEmitter.subscribe(comment =>{
-      this.comments.push(comment);
-    });
-    this.messageService.postEmitter.subscribe(post =>{
-      this.posts.push(post);
-    });
+    this.emailAddressInput = new FormControl();
+    this.passwordInput = new FormControl();
+    this.firstNameInput = new FormControl();
+    this.lastNameInput = new FormControl();
   }
 
-  onSend() {
-    this.messageService.createPost(this.content).then();
-  }
-
-  onLogout() {
-    this.posts = [];
-    this.comments = [];
-    this.messageService.logout();
+  onSubmit() {
+    this.messageService.register(this.emailAddressInput.value,
+      this.firstNameInput.value, this.lastNameInput.value, this.passwordInput.value);
   }
 }

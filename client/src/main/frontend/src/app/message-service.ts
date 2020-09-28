@@ -127,7 +127,20 @@ export class MessageService implements OnInit {
     if(this.eventSource != null){
       this.eventSource.close();
     }
-
     this.currentRoomName = null;
   }
+
+  //localhost:8080/a/create?emailAddress=account@gmail.com&firstName=Bob&lastName=LastName&password=helloggreaagregrae
+  register(emailAddress: string, firstName: string, lastName: string, password: string) {
+    let headers = this.getHeaders();
+    return this.http.post(`${this.baseUrl}/a/create?emailAddress=${emailAddress}&firstName=${firstName}&lastName=${lastName}&password=${password}`, {}, {
+      headers: headers,
+      observe: 'response'
+    }).toPromise()
+      .then(response => {
+        this.login(emailAddress, password);
+      })
+      .catch(console.log);
+  }
+
 }

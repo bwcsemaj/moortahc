@@ -1,26 +1,71 @@
-#chat-top-container{
-  background-color: darkorange;
+#register-email-address-container {
+
 }
 
-#chat-messages-container{
-  background-color: deeppink;
+#register-email-address-icon {
+  height: 35px;
+  width: 35px;
 }
 
-#chat-messages-list-group{
+#register-email-address-input{
+
+}
+
+#register-first-name-container {
+
+}
+
+#register-first-name-icon {
+  height: 35px;
+  width: 35px;
+}
+
+#register-first-name-input{
+
+}
+
+#register-last-name-container {
+
+}
+
+#register-last-name-input{
   background-color: purple;
 }
 
-#chat-bottom-container{
-  background-color: yellow;
-  height: 65px;
+#register-last-name-icon {
+  height: 35px;
+  width: 35px;
 }
 
-#chat-send-button{
+#register-password-container {
+  background-color: purple;
+}
+
+#register-password-icon {
+  height: 35px;
+  width: 35px;
+}
+
+#register-password-input{
   background-color: green;
+}
+
+#register-bottom-container {
   height: 65px;
 }
 
-#chat-text-area{
-  background-color: red;
+#register-button-container {
   height: 65px;
 }
+
+#register-submit-button {
+  height: 65px;
+  background-color: red;
+
+}
+
+#register-cancel-button {
+  height: 65px;
+  background-color: lightblue;
+}
+

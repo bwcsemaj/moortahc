@@ -1,24 +1,46 @@
 <div class="container-fluid d-flex flex-column m-0 p-0" style="height: calc(100vh - 100px)">
   <div class="col m-0 p-0 flex-grow-1" style="background-color: aqua;"></div>
-  <div *ngFor="let post of posts; let i = index">
-      {{post.content}}
-  </div>
-
-  <div id="chat-bottom-container" class="container-fluid d-flex flex-row m-0 p-0">
-    <div id="send-message-container" class="input-group col-12 container-fluid d-flex m-0 p-0">
-      <div class="input-group-prepend m-0 p-0">
-      <span class="input-group-text m-0 p-0">
-        <button (click)="onSend()"
-          id="chat-send-button" class="col-12 d-flex justify-content-center h-100">SEND</button>
-      </span>
+  <div id="register-email-address-container" class="">
+    <div class="input-group col">
+      <div class="input-group-prepend">
+        <span id="register-email-address-icon" class="input-group-text">@</span>
       </div>
-      <textarea [(ngModel)]="content" id="chat-text-area" class="form-control m-0 p-0" aria-label="With textarea"
-                style="resize: none;"></textarea>
-      <span class="input-group-text m-0 p-0">
-        <button [routerLink]="['/']" (click)="onLogout()"
-                id="chat-logout-button" class="col-12 d-flex justify-content-center h-100">LOGOUT</button>
-      </span>
+      <input [formControl]="emailAddressInput" id="register-email-address-input" type="text" class="form-control" placeholder="Email Address"
+             aria-label="EmailAddress" aria-describedby="basic-addon1">
     </div>
   </div>
-
+  <div id="register-first-name-container" class="">
+    <div class="input-group col">
+      <div class="input-group-prepend">
+        <span id="register-first-name-icon" class="input-group-text">@</span>
+      </div>
+      <input [formControl]="firstNameInput" id="register-first-input" type="text" class="form-control" placeholder="First Name"
+             aria-label="FirstName" aria-describedby="basic-addon1">
+    </div>
+  </div>
+  <div id="register-last-name-container" class="">
+    <div class="input-group col">
+      <div class="input-group-prepend">
+        <span id="register-last-name-icon" class="input-group-text">@</span>
+      </div>
+      <input [formControl]="lastNameInput" id="register-last-input" type="text" class="form-control" placeholder="Last Name"
+             aria-label="LastName" aria-describedby="basic-addon1">
+    </div>
+  </div>
+  <div id="register-password-container" class="">
+    <div class="input-group col">
+      <div class="input-group-prepend">
+        <span id="register-password-icon" class="input-group-text">@</span>
+      </div>
+      <input [formControl]="passwordInput" id="register-password-input" type="text" class="form-control" placeholder="Password"
+             aria-label="Password" aria-describedby="basic-addon1">
+    </div>
+  </div>
+  <div id="register-bottom-container" class="container-fluid d-flex flex-row m-0 p-0">
+    <div id="register-button-container" class="col-12 container-fluid d-flex m-0 p-0">
+      <button (click)="onSubmit()" class="col d-flex justify-content-center" id="register-option-submit-button">SUBMIT</button>
+      <button [routerLink]="['/']" class="col-2 d-flex justify-content-center" id="register-option-cancel-button">X</button>
+    </div>
+  </div>
 </div>
+

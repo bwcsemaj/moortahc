@@ -11,12 +11,14 @@ import {RouterModule, Routes} from "@angular/router";
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {HttpClientModule} from "@angular/common/http";
 import {CommonModule} from "@angular/common";
+import {RegisterComponent} from "./register/register.component";
 
 const routes: Routes = [
   { path: 'chat', component: ChatComponent },
   { path: 'confirm-code', component: ConfirmCodeComponent },
   { path: 'forgot', component: ForgotComponent },
   { path: 'login', component: LoginComponent },
+  { path: 'register', component: RegisterComponent },
   { path: '', component: HomeComponent },
 ];
 
@@ -28,6 +30,7 @@ const routes: Routes = [
     ChatComponent,
     ConfirmCodeComponent,
     HomeComponent,
+    RegisterComponent,
   ],
   imports: [
     BrowserModule,
