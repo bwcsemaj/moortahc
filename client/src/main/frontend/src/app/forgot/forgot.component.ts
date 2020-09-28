@@ -6,10 +6,14 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./forgot.component.css']
 })
 export class ForgotComponent implements OnInit {
+  emailAddressInput: any;
 
   constructor() { }
 
   ngOnInit(): void {
   }
 
+  onSendCode() {
+    
+  }
 }

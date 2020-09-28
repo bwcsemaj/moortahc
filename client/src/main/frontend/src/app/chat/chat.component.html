@@ -9,14 +9,14 @@
       <div class="input-group-prepend m-0 p-0">
       <span class="input-group-text m-0 p-0">
         <button (click)="onSend()"
-          id="chat-send-button" class="col-12 d-flex justify-content-center h-100">SEND</button>
+          id="chat-send-button" class="button col-12 d-flex justify-content-center h-100">SEND</button>
       </span>
       </div>
       <textarea [(ngModel)]="content" id="chat-text-area" class="form-control m-0 p-0" aria-label="With textarea"
                 style="resize: none;"></textarea>
       <span class="input-group-text m-0 p-0">
         <button [routerLink]="['/']" (click)="onLogout()"
-                id="chat-logout-button" class="col-12 d-flex justify-content-center h-100">LOGOUT</button>
+                id="chat-logout-button" class="button col-12 d-flex justify-content-center h-100">LOGOUT</button>
       </span>
     </div>
   </div>
