@@ -38,7 +38,6 @@ public class RoomController {
     
     @PostMapping("/dispatch")
     public void dispatchMessageToRoom(@RequestBody MessageDto messageDto) {
-        log.info("GOT MESSAGE {}", messageDto);
         roomService.dispatchMessage(messageDto);
     }
     

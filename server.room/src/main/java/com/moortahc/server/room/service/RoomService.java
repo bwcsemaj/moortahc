@@ -28,14 +28,10 @@ public class RoomService implements InitializingBean {
     public SseEmitter tryListenTo(String roomId, SseEmitter sseEmitter) {
         var sseEmitters = roomIdToSseEmitters.computeIfAbsent(roomId, key -> new SseEmitters());
         sseEmitters.add(sseEmitter);
-        sseEmitters.send("HELLO");
-        System.out.println(sseEmitters == roomIdToSseEmitters.get(roomId));
-        log.info("{} GRIIOR", roomIdToSseEmitters.size());
         return sseEmitter;
     }
     
     public void dispatchMessage(MessageDto messageDto) {
-        log.info("{}", messageDto);
         var opSseEmitters = Optional.ofNullable(roomIdToSseEmitters.get(messageDto.getRoomName()));
         opSseEmitters.ifPresent(sseEmitters -> sseEmitters.send(messageDto));
     }
