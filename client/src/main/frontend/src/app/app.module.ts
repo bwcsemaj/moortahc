@@ -15,6 +15,7 @@ const routes: Routes = [
   { path: 'chat', component: ChatComponent },
   { path: 'confirm-code', component: ConfirmCodeComponent },
   { path: 'forgot', component: ForgotComponent },
+  { path: 'login', component: LoginComponent },
   { path: '', component: HomeComponent },
 ];
 

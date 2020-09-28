@@ -1,11 +1,13 @@
 package com.moortahc.server.room.sse;
 
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.servlet.mvc.method.annotation.SseEmitter;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.CopyOnWriteArrayList;
 
+@Slf4j
 public class SseEmitters {
     
     private final List<SseEmitter> emitters = new CopyOnWriteArrayList<>();
@@ -35,7 +37,10 @@ public class SseEmitters {
                 failedEmitters.add(emitter);
             }
         });
-        
         this.emitters.removeAll(failedEmitters);
+    }
+    
+    public int size() {
+        return emitters.size();
     }
 }

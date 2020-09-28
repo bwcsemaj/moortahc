@@ -1,6 +1,7 @@
 package com.moortahc.server.room.config;
 
 import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
+import com.moortahc.server.common.utility.BSUtility;
 import com.moortahc.server.room.sse.SseEmitters;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.InitializingBean;
@@ -26,10 +27,19 @@ public class RoomConfig  {
     public static final ScheduledExecutorService SCHEDULED_EXECUTOR = Executors.newScheduledThreadPool(10);
 
     private final Map<String, SseEmitters> roomIdToSseEmitters;
+    
 
     @Autowired
     public RoomConfig(Map<String, SseEmitters> roomIdToSseEmitters) {
         this.roomIdToSseEmitters = roomIdToSseEmitters;
+        //#TODO fix the concurrency issue
+        BSUtility.SCHEDULED_EXECUTOR.scheduleAtFixedRate(()->{
+            new HashMap<>(roomIdToSseEmitters).forEach((roomId, sseEmitters) ->{
+                if(sseEmitters.size() == 0){
+                    roomIdToSseEmitters.remove(roomId);
+                }
+            });
+        }, 0, 5, TimeUnit.SECONDS);
     }
 
     @Bean

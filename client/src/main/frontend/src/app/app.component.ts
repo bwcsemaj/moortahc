@@ -1,6 +1,7 @@
 import {Component, OnInit, ViewChild} from '@angular/core';
 import {MessageService} from "./message-service";
 import {FormControl} from "@angular/forms";
+import {debounceTime, distinctUntilChanged} from "rxjs/operators";
 
 @Component({
   selector: 'app-root',
@@ -19,14 +20,17 @@ export class AppComponent implements OnInit {
 
   ngOnInit(): void {
     this.urlInput = new FormControl();
-    this.urlInput.valueChanges.subscribe(term => {
-      console.log('searching for', term);
-      // this.messageService.createEventSource(term);
-    });
+    this.urlInput.valueChanges
+      .pipe(
+        debounceTime(400),
+        distinctUntilChanged()
+      ).subscribe(res=> {
+        this.connect()
+      });
   }
 
   connect(){
     console.log(this.urlInput.value);
-    this.messageService.createEventSource(this.urlInput.value);
+    this.messageService.connectTo(this.urlInput.value);
   }
 }

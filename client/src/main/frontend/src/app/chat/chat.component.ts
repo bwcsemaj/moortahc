@@ -2,6 +2,8 @@ import { Observable } from "rxjs";
 import { Post } from "../post";
 import { Component, OnInit } from "@angular/core";
 import { Router } from '@angular/router';
+import {FormControl} from "@angular/forms";
+import {MessageService} from "../message-service";
 
 
 
@@ -11,10 +13,16 @@ import { Router } from '@angular/router';
   styleUrls: ['./chat.component.css']
 })
 export class ChatComponent implements OnInit {
+
+  content: string;
+
   posts: Observable<Post[]>
-  constructor() { }
+  constructor(private messageService : MessageService) {}
 
   ngOnInit(): void {
   }
 
+  onSend() {
+    this.messageService.createPost(this.content).then();
+  }
 }
