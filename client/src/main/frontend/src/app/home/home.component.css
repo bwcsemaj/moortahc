@@ -1,0 +1,13 @@
+#home-register-button {
+  background-color: darkblue;
+  height: 65px;
+}
+
+#home-login-button {
+  background-color: yellow;
+  height: 65px;
+}
+
+#home-container{
+  background-color: pink;
+}

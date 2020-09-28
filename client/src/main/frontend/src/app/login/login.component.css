@@ -1,0 +1,59 @@
+#login-container {
+
+}
+
+#login-center-container {
+
+}
+
+#login-user-name-container {
+
+}
+
+#login-user-name-icon {
+  height: 35px;
+  width: 35px;
+}
+
+#login-username-input {
+  background-color: purple;
+  height: 35px;
+}
+
+#login-password-container {
+  background-color: green;
+}
+
+#login-password-icon {
+  height: 35px;
+  width: 35px;
+}
+
+#login-password-input {
+  background-color: purple;
+  height: 35px;
+}
+
+#login-bottom-container {
+  height: 65px;
+}
+
+#login-button-container {
+  height: 65px;
+}
+
+#login-submit-button {
+  height: 65px;
+  background-color: red;
+
+}
+
+#login-forgot-button {
+  height: 65px;
+}
+
+#login-cancel-button {
+  height: 65px;
+  background-color: lightblue;
+}
+

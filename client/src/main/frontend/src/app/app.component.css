@@ -1,0 +1,52 @@
+html, body {
+  height: 100%;
+}
+
+* {
+  /*https://stackoverflow.com/questions/7008039/css-html5-why-does-my-body-have-a-spacing-at-the-top*/
+  margin: 0px;
+  padding: 0px;
+  border-width: 0px;
+  /*https://stackoverflow.com/questions/30489594/prevent-100vw-from-creating-horizontal-scroll/30504010*/
+  box-sizing: border-box;
+}
+
+html {
+  height: 100%;
+  width: 100%;
+  /* background: linear-gradient(rgb(1, 1, 1) 0.0%, rgb(4, 4, 4) 50.0%, rgb(1, 1, 1) 100.0%); */
+  text-align: center;
+  padding: 0px;
+}
+
+body {
+  height: 100%;
+  width: 100%;
+  /* background: linear-gradient(rgb(1, 1, 1) 0.0%, rgb(4, 4, 4) 50.0%, rgb(1, 1, 1) 100.0%); */
+  padding: 0px;
+}
+
+#logo-container {
+  background-color: #1900ff;
+  height: 65px;
+}
+
+#login-container {
+  background-color: aquamarine;
+  height: 65px;
+  position: absolute;
+}
+
+#url-container {
+  background-color: pink;
+  height: 35px;
+}
+
+#gap-container{
+  background-color: orange;
+}
+
+#url-icon{
+  height: 35px;
+  width: 35px;
+}

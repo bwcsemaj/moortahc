@@ -12,4 +12,8 @@ export class ConfirmCodeComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  enterCode(){
+
+  }
+
 }

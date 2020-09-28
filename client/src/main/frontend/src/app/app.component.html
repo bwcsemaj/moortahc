@@ -1,175 +1,25 @@
-<!DOCTYPE html>
-<html>
-
-<head>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
-  <title>MOORTAHC</title>
-
-  <link href="./css/home.css" rel="stylesheet">
-  <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
-  <script type="text/javascript" src="./js/header-functions.js"></script>
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
-</head>
-
-<body>
-
-<div class="container-fluid no-gutters col-xs-12 col-sm-12 col-md-9 col-lg-7 m-0 p-0">
-  <div class="row justify-content-center min-vh-100 m-0 p-0">
-    <div class="col-12 m-0 p-0">
-      <div class="d-flex flex-column h-100 m-0 p-0">
-        <div class="row justify-content-center bg-purple m-0 p-0">
-          <div id="logo-container" class="no-gutters col-12 container-fluid d-flex m-0 p-0">
-            <div class="col d-flex justify-content-center" style="background-color: black;">M</div>
-            <div class="col d-flex justify-content-center" style="background-color: red;">O</div>
-            <div class="col d-flex justify-content-center" style="background-color: brown;">O</div>
-            <div class="col d-flex justify-content-center" style="background-color: yellow;">R</div>
-            <div class="col d-flex justify-content-center" style="background-color: green;">T</div>
-            <div class="col d-flex justify-content-center" style="background-color: blue;">A</div>
-            <div class="col d-flex justify-content-center" style="background-color: purple;">H</div>
-            <div class="col d-flex justify-content-center" style="background-color: black;">C</div>
-          </div>
-          <div id="url-container" class="d-flex flex-row col-12 m-0 p-0">
-            <button id="url-icon"></button>
-            <input id="url-text-input" type="text" class="form-control" value="1">
-          </div>
+<div class="container-fluid min-vh-100 d-flex flex-column">
+  <div class="row">
+    <div class="col">
+      <div class="row justify-content-center bg-purple m-0 p-0">
+        <div id="logo-container" class="no-gutters col-12 container-fluid d-flex m-0 p-0">
+          <div class="col d-flex justify-content-center" style="background-color: black;">M</div>
+          <div class="col d-flex justify-content-center" style="background-color: red;">O</div>
+          <div class="col d-flex justify-content-center" style="background-color: brown;">O</div>
+          <div class="col d-flex justify-content-center" style="background-color: yellow;">R</div>
+          <div class="col d-flex justify-content-center" style="background-color: green;">T</div>
+          <div class="col d-flex justify-content-center" style="background-color: blue;">A</div>
+          <div class="col d-flex justify-content-center" style="background-color: purple;">H</div>
+          <div class="col d-flex justify-content-center" style="background-color: black;">C</div>
         </div>
-
-        <!-- CENTER -->
-        <div id="botto-holder-container" class="m-0 p-0 h-100" style="position: relative;">
-
-          <div class="col-12 m-0 p-0 h-100" style="position: absolute; background-color: red;">
-
-
-            <!-- SUBIT FORGOT X FORMS -->
-            <div id="submit-forgot-cancel-container"
-                 class="d-flex flex-column col-12 m-0 p-0 h-100 col-12 m-0 p-0">
-              <div id="gap-container" class="col m-0 p-0 h-100" style="background-color: sienna;">
-
-              </div>
-
-              <div id="user-name-container" class="">
-                <div class="input-group col">
-                  <div class="input-group-prepend">
-                    <span id="form-icon" class="input-group-text">@</span>
-                  </div>
-                  <input id="submit-forgot-cancel-username" type="text" class="form-control" placeholder="Username"
-                         aria-label="Username" aria-describedby="basic-addon1">
-                </div>
-              </div>
-              <div id="password-container" class="">
-                <div class="input-group col">
-                  <div class="input-group-prepend">
-                    <span id="form-icon" class="input-group-text">&</span>
-                  </div>
-                  <input id="submit-forgot-cancel-password" type="text" class="form-control" placeholder="Password"
-                         aria-label="Password" aria-describedby="basic-addon1">
-                </div>
-              </div>
-            </div>
-
-            <!-- SEND CODE EMAIL -->
-            <div id="send-code-email-container"
-                 class="d-flex flex-column col-12 m-0 p-0 h-100 col-12 m-0 p-0">
-              <div id="gap-container" class="col m-0 p-0 h-100">
-
-              </div>
-
-              <div id="send-code-email-forms" class="">
-                <div class="input-group col">
-                  <div class="input-group-prepend">
-                    <span id="form-icon" class="input-group-text">@</span>
-                  </div>
-                  <input id="send-code-email-email" type="text" class="form-control" placeholder="Email"
-                         aria-label="Email"
-                         aria-describedby="basic-addon1">
-                </div>
-              </div>
-            </div>
-
-            <!-- CHAT MESSAGES -->
-            <div id="chat-messages-container"
-                 class="d-flex flex-column col-12 m-0 p-0 h-100 col-12 m-0 p-0">
-              <ul id="chat-messages-list-group" class="list-group col m-0 p-0 h-100">
-                <li class="list-group-item">Cras justo odio</li>
-                <li class="list-group-item">Dapibus ac facilisis in</li>
-                <li class="list-group-item">Morbi leo risus</li>
-                <li class="list-group-item">Porta ac consectetur ac</li>
-                <li class="list-group-item">Vestibulum at eros</li>
-              </ul>
-            </div>
-
-
-          </div>
-
-
-        </div>
-
-        <!-- <div id="body-container" class="row justify-content-center bg-blue flex-grow-1 m-0 p-0"> -->
-        <!-- SUBIT FORGOT X FORMS -->
-        <!-- <div class="d-flex flex-column col-12 m-0 p-0 align-bottom ">
-                <div id="gap-container" class="col container-fluid d-flex m-0 p-0 h-100 align-top">
-
-                </div>
-
-
-            </div> -->
-        <!-- </div> -->
-
-        <!-- BOTTOM -->
-        <div id="bottom-holder-container" class="container-fluid d-flex flex-row m-0 p-0"
-             style="position: relative;">
-
-          <!-- LOGIN REGISTER -->
-          <div id="login-container" class="col-12 container-fluid d-flex m-0 p-0">
-            <button class="col d-flex justify-content-center" id="login-button">LOGIN</button>
-            <button class="col d-flex justify-content-center" id="register-button">REGISTER</button>
-          </div>
-
-          <!-- SUBMIT FORGOT REGISTER -->
-          <div id="login-option-container" class="col-12 container-fluid d-flex m-0 p-0">
-            <button class="col-5 d-flex justify-content-center" id="login-option-submit-button">SUBMIT</button>
-            <button class="col-5 d-flex justify-content-center" id="login-option-register-button">FORGOT</button>
-            <button class="col-2 d-flex justify-content-center" id="login-option-cancel-button">REGISTER</button>
-          </div>
-
-          <!-- SEND CODE -->
-          <div id="forgot-option-container" class="col-12 container-fluid d-flex m-0 p-0">
-            <button class="col-10 d-flex justify-content-center" id="forgot-option-send-code-button">SEND
-              CODE
-            </button>
-            <button class="col-2 d-flex justify-content-center" id="forgot-option-cancel-button">X</button>
-          </div>
-
-          <!-- ENTER CODE -->
-          <div id="enter-code-option-container" class="col-12 container-fluid d-flex m-0 p-0">
-            <button class="col-10 d-flex justify-content-center" id="enter-code-option-enter-code-button">ENTER
-              CODE
-            </button>
-            <button class="col-2 d-flex justify-content-center" id="enter-code-option-cancel-button">X</button>
-          </div>
-
-          <!-- SEND MESSAGE -->
-          <div id="send-message-container" class="input-group col-12 container-fluid d-flex m-0 p-0">
-            <div class="input-group-prepend m-0 p-0">
-                                <span class="input-group-text m-0 p-0">
-                                    <button id="send-message-send-button"
-                                            class="col-12 d-flex justify-content-center h-100"
-                                            id="send-message-button">SEND</button>
-                                </span>
-            </div>
-            <textarea id="send-message-text-area" class="form-control m-0 p-0" aria-label="With textarea"
-                      style="resize: none;"></textarea>
-          </div>
+        <div id="url-container" class="d-flex flex-row col-12 m-0 p-0">
+          <button id="url-icon" (click)="connect()"></button>
+          <input id="url-text-input" [formControl]="urlInput" type="text" class="form-control" value="1">
         </div>
       </div>
     </div>
   </div>
+<!--  <app-chat></app-chat>-->
+<!--  <app-confirm-code></app-confirm-code>-->
+  <router-outlet></router-outlet>
 </div>
-
-
-</body>
-
-</html>

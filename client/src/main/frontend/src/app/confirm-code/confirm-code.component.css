@@ -1,0 +1,35 @@
+#confirm-code-container{
+
+}
+
+#enter-code-container{
+  background-color: bisque;
+}
+
+#confirm-code-icon{
+  height: 35px;
+  width: 35px;
+}
+
+#confirm-code-forms{
+  background-color: purple;
+  height: 35px;
+}
+
+#confirm-code-bottom-container{
+  height: 65px;
+}
+
+#confirm-code-option-container{
+  height: 65px;
+}
+
+#confirm-code-button{
+  height: 65px;
+  background-color: lightblue;
+}
+
+#confirm-code-cancel-button{
+  height: 65px;
+  background-color: lightblue;
+}
