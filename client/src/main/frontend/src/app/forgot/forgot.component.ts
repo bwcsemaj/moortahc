@@ -14,6 +14,6 @@ export class ForgotComponent implements OnInit {
   }
 
   onSendCode() {
-    
+
   }
 }
