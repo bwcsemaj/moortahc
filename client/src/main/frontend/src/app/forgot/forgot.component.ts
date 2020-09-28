@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {FormControl} from "@angular/forms";
 
 @Component({
   selector: 'app-forgot',
@@ -6,11 +7,12 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./forgot.component.css']
 })
 export class ForgotComponent implements OnInit {
-  emailAddressInput: any;
+  emailAddressInput: FormControl;
 
   constructor() { }
 
   ngOnInit(): void {
+    this.emailAddressInput = new FormControl();
   }
 
   onSendCode() {
