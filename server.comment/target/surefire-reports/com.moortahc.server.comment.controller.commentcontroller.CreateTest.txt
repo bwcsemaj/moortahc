@@ -1,4 +1,0 @@
--------------------------------------------------------------------------------
-Test set: com.moortahc.server.comment.controller.commentcontroller.CreateTest
--------------------------------------------------------------------------------
-Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 14.523 sec
