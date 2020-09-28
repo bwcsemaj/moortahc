@@ -27,6 +27,9 @@ export class AppComponent implements OnInit {
       ).subscribe(res=> {
         this.connect()
       });
+    this.messageService.logoutEmitter.subscribe(value =>{
+      this.urlInput.setValue(null);
+    });
   }
 
   connect(){

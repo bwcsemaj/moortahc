@@ -26,6 +26,8 @@ export class MessageService implements OnInit {
   postEmitter = new EventEmitter<Post>();
   commentEmitter = new EventEmitter<Comment>();
 
+  logoutEmitter = new EventEmitter<Boolean>();
+
   token: string;
 
   createEventSource(roomName: string): EventSource {
@@ -121,4 +123,11 @@ export class MessageService implements OnInit {
   }
 
 
+  logout() {
+    if(this.eventSource != null){
+      this.eventSource.close();
+    }
+
+    this.currentRoomName = null;
+  }
 }

@@ -8,10 +8,10 @@ import {MessageService} from "../message-service";
 
 @Component({
   selector: 'app-chat',
-  templateUrl: './chat.component.html',
-  styleUrls: ['./chat.component.css']
+  templateUrl: './register.component.html',
+  styleUrls: ['./register.component.css']
 })
-export class ChatComponent implements OnInit {
+export class RegisterComponent implements OnInit {
 
   content: string;
 

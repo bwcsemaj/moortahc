@@ -1,0 +1,26 @@
+#chat-top-container{
+  background-color: darkorange;
+}
+
+#chat-messages-container{
+  background-color: deeppink;
+}
+
+#chat-messages-list-group{
+  background-color: purple;
+}
+
+#chat-bottom-container{
+  background-color: yellow;
+  height: 65px;
+}
+
+#chat-send-button{
+  background-color: green;
+  height: 65px;
+}
+
+#chat-text-area{
+  background-color: red;
+  height: 65px;
+}
