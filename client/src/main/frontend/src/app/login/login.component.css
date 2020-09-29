@@ -11,13 +11,12 @@
 }
 
 #login-user-name-icon {
-  height: 35px;
-  width: 35px;
+  height: 50px;
+  width: 50px;
 }
 
 #login-username-input {
-  background-color: purple;
-  height: 35px;
+  height: 50px;
 }
 
 #login-password-container {
@@ -25,21 +24,28 @@
 }
 
 #login-password-icon {
-  height: 35px;
-  width: 35px;
+  height: 50px;
+  width: 50px;
 }
 
 #login-password-input {
-  background-color: purple;
-  height: 35px;
+  height: 50px;
 }
 
 #login-bottom-container {
   height: 65px;
 }
 
-#login-button-container {
-  height: 65px;
+#login-password-input{
+  height: 50px;
+}
+
+#login-first-name-input{
+  height: 50px;
+}
+
+#login-last-name-input{
+  height: 50px;
 }
 
 #login-submit-button {

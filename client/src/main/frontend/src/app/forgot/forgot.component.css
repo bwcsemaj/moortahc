@@ -3,13 +3,12 @@
 }
 
 #forgot-email-address-icon{
-  height: 35px;
-  width: 35px;
+  height: 50px;
+  width: 50px;
 }
 
-#forgot-email-input{
-  width: 35px;
-  background-color: #1900ff;
+#forgot-email-address-input{
+  height: 50px;
 }
 
 #forgot-bottom-container{

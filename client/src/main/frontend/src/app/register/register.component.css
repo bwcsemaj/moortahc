@@ -3,12 +3,12 @@
 }
 
 #register-email-address-icon {
-  height: 35px;
-  width: 35px;
+  height: 50px;
+  width: 50px;
 }
 
 #register-email-address-input{
-
+  height: 50px;
 }
 
 #register-first-name-container {
@@ -16,12 +16,12 @@
 }
 
 #register-first-name-icon {
-  height: 35px;
-  width: 35px;
+  height: 50px;
+  width: 50px;
 }
 
 #register-first-name-input{
-
+  height: 50px;
 }
 
 #register-last-name-container {
@@ -29,12 +29,12 @@
 }
 
 #register-last-name-input{
-  background-color: purple;
+  height: 50px;
 }
 
 #register-last-name-icon {
-  height: 35px;
-  width: 35px;
+  height: 50px;
+  width: 50px;
 }
 
 #register-password-container {
@@ -42,12 +42,12 @@
 }
 
 #register-password-icon {
-  height: 35px;
-  width: 35px;
+  height: 50px;
+  width: 50px;
 }
 
 #register-password-input{
-  background-color: green;
+  height: 50px;
 }
 
 #register-bottom-container {
