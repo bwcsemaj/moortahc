@@ -25,8 +25,9 @@ This isn't final list of technologies and some technologies down the line may ge
 ## Prerequisites to Installation
 [Git](https://git-scm.com/downloads) needs to be installed (preferable GitBash also will be downloaded)\
 [JDK 14](https://www.azul.com/downloads/zulu-community/?architecture=x86-64-bit&package=jdk) needs to be installed (in parent pom you can change JDK version to 11 and be fine)\
-[Intellij](https://www.jetbrains.com/idea/download/#section=windows) needs to be installed\
-[Angular CLI](https://angular.io/cli) needs to be installed `npm install -g @angular/cli`
+[Intellij](https://www.jetbrains.com/idea/download/#section=windows) needs to be installed (recommended having Intellij Ultimate)\
+[Angular CLI](https://angular.io/cli) needs to be installed `npm install -g @angular/cli`\
+[Chrome](https://www.google.com/chrome/) needs to be installed (unless you know how to disable web security on other browsers)
 
 ## Brief Installation Steps
 ##### This section is "quick" installation guide
@@ -84,4 +85,39 @@ This isn't final list of technologies and some technologies down the line may ge
     7. If a driver is missing you will have to navigate to module and start Driver manually
     8. Highlight all Drivers 
     9. Right click them and hit `Run` or `Rerun`
-    10. Ports
+    10. All the services should be running on their own port (ports are hard coded atm)
+12. If you succeed with step 11 than step 12, Run all Drivers manually
+    1. Start Discovery by running application in DiscoveryDriver
+        1. Inside Intellij click on server.discovery
+        2. click on src
+        3. click on main
+        4. click on java
+        5. click on com.moortahc.server.discovery
+        6. double click on DiscoveryDriver (DiscoveryDriver java file should be opened)
+        7. left of psvm (public static void main) line, click the green arrow
+        8. click on `Run DiscoveryDriver`
+    2. repeat steps 12.1 - 12.8 with the rest of the services
+        1. Each driver should be located at src/main/java/com.moortahc.server.{insert-name}
+        2. Each driver should have a green arrow left of psvm that you can Run the application
+13. Once all micro services are started, now we need to start frontend Angular Server
+    1. switch to your Git Bash
+    2. you should be still located in start of project path
+    3. navigate to frontend folder in client `cd client/src/main/frontend`
+    4. Now this is why we need Angular CLI, to serve frontend in dev mode we need to use Angular CLI
+        1. enter in `ng serve` into Git Bash
+        2. it may look like it isn't doing anything but please wait, the project has to be compiled and served up
+        3. You should get a `Angular Live Development Server is listening...` in Git Bash. The Server will be listening in on port 4200
+        4. url to get to the website is localhost:4200 but before we can do that we need to have web security disabled in our browsers
+            1. reason is CORS is not enabled on server side atm. I need to do a bit more research 
+            on subject in order to determine if it is a good idea, from my understanding if all the servers are located at same origin I won't need disable CORS
+14. View the site inside a browser with web security/CORS disabled
+    1. We are going to use Chrome
+    2. open up another Git Bash window or CMD (you might want to load it up in admin mode)
+    3. Navigate to chrome.exe location on your computer
+        1. mine is located on C: drive, so `cd C:\Program Files (x86)\Google\Chrome\Application`
+        2. now load chrome with web security disabled, `chrome.exe --disable-web-security --disable-gpu --user-data-dir=C:\Chrome dev session`
+        3. the user data directory can be whatever you please but you need to folder/file creation permission
+    4. You will know if you did this right if you get `You are using an unsupported command-lin flag:--disable-web-security. Stability and security will suffer` underneath the URL
+15. Inside Chrome type `localhost:4200` in the URL and press enter
+
+            
