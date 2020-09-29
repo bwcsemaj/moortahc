@@ -39,23 +39,23 @@ export class AppComponent implements OnInit {
     });
 
     this.messageService.commentEmitter.subscribe(comment =>{
-      this.comments.push(comment);
-      if(this.comments.length > this.MAX_SIZE){
-        this.comments.pop();
-      }
-      const element = document.createElement('li');
-      element.innerHTML = `${comment.fromId}:${comment.content}`;
-      document.getElementById('chat-messages').appendChild(element);
+      // this.comments.push(comment);
+      // if(this.comments.length > this.MAX_SIZE){
+      //   this.comments.pop();
+      // }
+      // const element = document.createElement('li');
+      // element.innerHTML = `${comment.fromId}:${comment.content}`;
+      // document.getElementById('chat-messages').appendChild(element);
     });
 
     this.messageService.postEmitter.subscribe(post =>{
-      this.posts.push(post);
-      if(this.posts.length > this.MAX_SIZE){
-        this.posts.pop();
-      }
-      const element = document.createElement('li');
-      element.innerHTML = `${post.fromId}:${post.content}`;
-      document.getElementById('chat-messages').appendChild(element);
+      // this.posts.push(post);
+      // if(this.posts.length > this.MAX_SIZE){
+      //   this.posts.pop();
+      // }
+      // const element = document.createElement('li');
+      // element.innerHTML = `${post.fromId}:${post.content}`;
+      // document.getElementById('chat-messages').appendChild(element);
     });
   }
 
