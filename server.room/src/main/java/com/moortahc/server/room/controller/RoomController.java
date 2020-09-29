@@ -29,10 +29,10 @@ public class RoomController {
         this.roomService = roomService;
     }
     
-    @GetMapping(path = "/listen/{roomId}", produces = MediaType.TEXT_EVENT_STREAM_VALUE)
-    public SseEmitter listen(@PathVariable String roomId) {
+    @GetMapping(path = "/listen", produces = MediaType.TEXT_EVENT_STREAM_VALUE)
+    public SseEmitter listen(@RequestParam String roomName) {
         var sseEmitter = new SseEmitter();
-        roomService.tryListenTo(roomId, sseEmitter);
+        roomService.tryListenTo(roomName, sseEmitter);
         return sseEmitter;
     }
     

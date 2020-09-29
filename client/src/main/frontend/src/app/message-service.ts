@@ -32,7 +32,7 @@ export class MessageService implements OnInit {
 
   createEventSource(roomName: string): EventSource {
     this.currentRoomName = roomName;
-    return new EventSource(`http://localhost:8080/r/listen/${encodeURIComponent(this.currentRoomName)}`);
+    return new EventSource(`http://localhost:8080/r/listen?roomName=${encodeURIComponent(this.currentRoomName)}`);
   }
 
   connectTo(roomName: string) {
