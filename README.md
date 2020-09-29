@@ -48,5 +48,40 @@ This isn't final list of technologies and some technologies down the line may ge
         2. option2: make a new directory you want the project stored `mkdir newDirectoryName` then cd into new folder `cd newDirectoryName`
 2. Clone project into direcotry
     1. `git clone https://github.com/bwcsemaj/moortahc`
+    2. you can add an argument at tend to specifically name folder project will be in otherwise will default to moortahc
+        1. `git clone https://github.com/bwcsemaj/moortahc newDirectoryName`
 3. Change Directory to clone project folder
     1. `cd moortahc`
+    2. if you chose specific name cd into that name `cd newDirectoryName`
+4. Open up explorer inside project path
+    1. type `explorer .`
+    2. the explorer program should up a window in that specific path
+5. You should see all modules, pom, README.md... right click pom.xml
+6. chose `edit with Intellij IDEA`
+    1. Intellij should begin to load the project as a multi module maven project
+    2. Intellij should also recognize all the Spring Boot configs (not 100% needed)
+7. All projects should be blue, pom.xml maven icon should be blue
+8. right click the very top directory 
+    1. should say the folder name `moortahc [parent]`, parent shouldn't be folder name but idicate it is the parent of project
+9. hover over `Run Maven`
+10. choose `package`
+    1. maven will begin to create a package/jar for each of the modules
+    2. this isn't 100% needed but it will download the dependencies, we could also do `maven compile`
+11. (OPTIONAL: NEED Intellij Ultimate) once the build finishes...
+    1. Look at top of Intellij window `File Edit View Navigate...`
+    2. Press `View`
+    3. Press `Tool Windows`
+    4. Select `Services`
+    5. This will add a tab at the bottom of the screen to view all our micro services nicely
+    6. Service tab should recognize 7 Driver classes, one for each of our microservices
+        1. AuthenticateDriver : Port 8082 needs to be open
+        2. CommentDriver : Port 8083 needs to be open
+        3. DiscoveryDriver : Port 8761 needs to be open
+        4. GatewayDriver : Port 8086 needs to be open
+        5. PostDriver : Port 8084 needs to be open
+        6. SpringCloudGatewayDriver : Port 8080 needs to be open
+        7. RoomDriver : Port 8085 needs to be open
+    7. If a driver is missing you will have to navigate to module and start Driver manually
+    8. Highlight all Drivers 
+    9. Right click them and hit `Run` or `Rerun`
+    10. Ports
