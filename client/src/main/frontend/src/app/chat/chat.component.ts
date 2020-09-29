@@ -15,19 +15,12 @@ export class ChatComponent implements OnInit {
 
   content: string;
 
-  posts: Post[] = [];
-  comments: Comment[] = [];
 
   constructor(private messageService: MessageService) {
   }
 
   ngOnInit(): void {
-    this.messageService.commentEmitter.subscribe(comment =>{
-      this.comments.push(comment);
-    });
-    this.messageService.postEmitter.subscribe(post =>{
-      this.posts.push(post);
-    });
+
   }
 
   onSend() {
@@ -35,8 +28,6 @@ export class ChatComponent implements OnInit {
   }
 
   onLogout() {
-    this.posts = [];
-    this.comments = [];
     this.messageService.logout();
   }
 }

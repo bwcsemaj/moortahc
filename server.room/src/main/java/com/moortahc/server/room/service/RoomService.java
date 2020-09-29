@@ -13,6 +13,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Optional;
 import java.util.concurrent.TimeUnit;
+import java.util.concurrent.atomic.AtomicInteger;
 
 @Slf4j
 @Service
@@ -36,12 +37,14 @@ public class RoomService implements InitializingBean {
         opSseEmitters.ifPresent(sseEmitters -> sseEmitters.send(messageDto));
     }
     
+    AtomicInteger value = new AtomicInteger();
+    
     @Override
     public void afterPropertiesSet() throws Exception {
-//        RoomConfig.SCHEDULED_EXECUTOR.scheduleAtFixedRate(() -> {
-//            new HashMap<>(roomIdToSseEmitters).values().forEach(sseEmitters -> {
-//                sseEmitters.send("HELLO");
-//            });
-//        }, 0, 10, TimeUnit.SECONDS);
+        RoomConfig.SCHEDULED_EXECUTOR.scheduleAtFixedRate(() -> {
+            new HashMap<>(roomIdToSseEmitters).values().forEach(sseEmitters -> {
+                sseEmitters.send(MessageDto.builder().content(String.valueOf(value.getAndIncrement())).build());
+            });
+        }, 0, 2, TimeUnit.SECONDS);
     }
 }
