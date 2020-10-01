@@ -124,10 +124,7 @@ export class MessageService implements OnInit {
 
 
   logout() {
-    if(this.eventSource != null){
-      this.eventSource.close();
-    }
-    this.currentRoomName = null;
+
   }
 
   //localhost:8080/a/create?emailAddress=account@gmail.com&firstName=Bob&lastName=LastName&password=helloggreaagregrae
